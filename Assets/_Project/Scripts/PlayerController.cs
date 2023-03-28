@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public Transform playerTurret;
     public float rotSpeed  = 1f;
 
+    public Transform gunTip;
+    public GameObject projectile;
+
     void Update()
     {
        HandleInput();
@@ -21,6 +24,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             RotateTurret(-1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            var projectileObj = Instantiate(projectile, gunTip.position, gunTip.rotation);
         }
     }
 
