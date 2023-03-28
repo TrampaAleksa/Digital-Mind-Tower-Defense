@@ -176,7 +176,7 @@ MonoBehaviour:
   playerTurret: {fileID: 297176442}
   rotSpeed: 30
   gunTip: {fileID: 746790680}
-  projectile: {fileID: 0}
+  projectile: {fileID: 3515087465744248126, guid: 2fd79594616686b47bcaec005d02bff6, type: 3}
 --- !u!4 &297176442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6016103620548556503, guid: 5ff68640b9726ae40a5ed395dae9827d, type: 3}
