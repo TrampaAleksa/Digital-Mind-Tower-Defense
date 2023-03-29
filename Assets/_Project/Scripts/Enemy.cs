@@ -19,10 +19,16 @@ namespace com.digitalmind.towertest
             Init();
         }
         
-        public void TakeDamage(float amount) => _enemyHealth.TakeDamage(amount);
-        public void TriggerEnemyDeath() => _enemyDeath.TriggerEnemyDeath(this);
-        public void SetSpeed(float speed) => _enemyNavigation.SetSpeed(speed);
-        public void SetMaxHealth(float maxHealth) => _enemyHealth.SetMaxHealth(maxHealth);
+        public void TakeDamage(float amount)
+            => _enemyHealth.TakeDamage(amount);
+        public void TriggerEnemyDeath()
+            => _enemyDeath.TriggerEnemyDeath(this);
+        public void SetSpeed(float speed)
+            => _enemyNavigation.SetSpeed(speed);
+        public void SetStoppingDistance(float stoppingDistance) =>
+            _enemyNavigation.SetStoppingDistance(stoppingDistance);
+        public void SetMaxHealth(float maxHealth)
+            => _enemyHealth.SetMaxHealth(maxHealth);
 
         private void Init()
         {

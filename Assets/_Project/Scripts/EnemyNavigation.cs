@@ -21,5 +21,6 @@ namespace com.digitalmind.towertest
         }
 
         public void SetSpeed(float speed) => _agent.speed = speed;
+        public void SetStoppingDistance(float stoppingDistance) => _agent.stoppingDistance = stoppingDistance;
     }
 }
