@@ -18,7 +18,13 @@ namespace com.digitalmind.towertest
         {
             Init();
         }
-        
+
+        private void Start()
+        {
+            _enemyNavigation.StartNavigation(Player.Find.transform);
+            _enemyBehaviour.SetUpBehaviour(this);
+        }
+
         public void TakeDamage(float amount)
             => _health.TakeDamage(amount);
         public void TriggerEnemyDeath()
@@ -38,9 +44,6 @@ namespace com.digitalmind.towertest
             _enemyNavigation = gameObject.GetComponent<EnemyNavigation>();
             _enemyBehaviour = gameObject.GetComponent<EnemyBehaviour>();
             
-            _enemyNavigation.StartNavigation(Player.Find.transform);
-            
-            _enemyBehaviour.SetUpBehaviour(this);
         }
     }
 }

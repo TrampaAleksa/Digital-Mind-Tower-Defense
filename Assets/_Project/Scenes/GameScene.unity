@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71884120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1, y: 0.44214344, z: 0.24917793}
+  m_LocalPosition: {x: 67.7, y: 0.44214344, z: 0.24917793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71884120}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0eb93267ec5ce64b8e5511e3720110d, type: 3}
   m_Name: 
@@ -187,7 +187,7 @@ MonoBehaviour:
   - {fileID: 666932715}
   - {fileID: 371244350}
   - {fileID: 501650379}
-  spawnInterval: 1
+  spawnInterval: 2
 --- !u!1 &225298450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,70 +1509,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_Speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_Acceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6978040915539490214, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215413768328047964, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215413768328047964, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215413768328047964, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
---- !u!1 &2720872980374277793 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2720872979538706366, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-  m_PrefabInstance: {fileID: 2720872980374277792}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2720872980374277794 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5133888771115290690, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-  m_PrefabInstance: {fileID: 2720872980374277792}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2720872980374277800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720872980374277793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 732b01adf0904ba89f1cb633f8389240, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 2
-  speed: 18
-  stoppingDistance: 40
-  rateOfFire: 3
-  damagePerShot: 2
-  shootingRange: 40
-  projectile: {fileID: 3515087465744248126, guid: a200c7c8b213f604987b9a79197668ce, type: 3}
-  gunTip: {fileID: 2720872980374277794}
 --- !u!1001 &6016103620822072237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1637,22 +1575,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1936826294, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
-      propertyPath: m_Speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1936826294, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
-      propertyPath: m_Acceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1936826294, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 141389043010967576, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738710, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_Name
       value: EnemyRunnerHolder
