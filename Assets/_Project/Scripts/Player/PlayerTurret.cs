@@ -10,6 +10,22 @@ public class PlayerTurret : MonoBehaviour
     
     public void Shoot()
         => Instantiate(projectile, gunTip.position, gunTip.rotation);
-    public void RotateTurret(int direction)
-        => rotationObj.Rotate(Vector3.up, direction * Time.deltaTime * rotSpeed);
+    public void RotateTurret(Direction direction)
+    {
+        var rotationDirection = GetRotationDirection(direction);
+        rotationObj.Rotate(Vector3.up, rotationDirection * Time.deltaTime * rotSpeed);
+    }
+
+    private int GetRotationDirection(Direction direction)
+    {
+        if (direction == Direction.Clockwise)
+            return 1;
+        else return -1;
+    }
+}
+
+public enum Direction
+{
+    Clockwise,
+    CounterClockwise
 }

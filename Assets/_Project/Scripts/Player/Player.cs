@@ -20,16 +20,10 @@ public class Player : MonoBehaviour
         => _playerHealth.TakeDamage(amount);
     public void Shoot()
         => _playerTurret.Shoot();
-    public void RotateTurret(int direction)
+    public void RotateTurret(Direction direction)
         => _playerTurret.RotateTurret(direction);
 
 
     //TODO - optimize finding player game object
     public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>();
-}
-
-public enum Direction
-{
-    Clockwise,
-    CounterClockwise
 }

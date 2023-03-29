@@ -17,10 +17,10 @@ namespace com.digitalmind.towertest
         private void HandleInput()
         {
             if (Input.GetKey(KeyCode.A))
-                player.RotateTurret(1);
+                player.RotateTurret(Direction.Clockwise);
 
             if (Input.GetKey(KeyCode.D))
-                player.RotateTurret(-1);
+                player.RotateTurret(Direction.CounterClockwise);
 
             if (Input.GetKeyDown(KeyCode.Space))
                 player.Shoot();
