@@ -8,11 +8,6 @@ namespace com.digitalmind.towertest
         public float speed = 12f;
         public float damage = 3f;
 
-        private void Start()
-        {
-            SetUpBehaviour(GetComponent<Enemy>());
-        }
-
         public override void SetUpBehaviour(Enemy enemy)
         {
             enemy.SetMaxHealth(maxHealth);
