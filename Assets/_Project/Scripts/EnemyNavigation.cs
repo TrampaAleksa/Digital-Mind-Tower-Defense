@@ -19,5 +19,7 @@ namespace com.digitalmind.towertest
         {
             _agent.SetDestination(target.position);
         }
+
+        public void SetSpeed(float speed) => _agent.speed = speed;
     }
 }

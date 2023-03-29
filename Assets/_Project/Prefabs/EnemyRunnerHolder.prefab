@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 141389043010967576}
   - component: {fileID: 1936826294}
   - component: {fileID: 1936826295}
+  - component: {fileID: 4151854298503598534}
   m_Layer: 0
   m_Name: EnemyRunnerHolder
   m_TagString: Enemy
@@ -141,6 +142,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa60780066192e4a8a9f3d3f72a947a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4151854298503598534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953428380926738710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93417e54cda8459abc68e7094767cef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  speed: 12
+  damage: 3
 --- !u!1001 &8373822234378869565
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,7 +6,8 @@ namespace com.digitalmind.towertest
 {
     public class EnemyHealth : MonoBehaviour
     {
-        public float maxHealth;
+        [SerializeField]
+        private float maxHealth;
         private float _currentHealth;
         
         public OnHealthChangedEvent onHealthChanged;
@@ -33,6 +34,13 @@ namespace com.digitalmind.towertest
         {
             get => _currentHealth;
             set => _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+        }
+
+        public void SetMaxHealth(float value)
+        {
+            maxHealth = value;
+            if (CurrentHealth > maxHealth)
+                CurrentHealth = maxHealth;
         }
     }
 
