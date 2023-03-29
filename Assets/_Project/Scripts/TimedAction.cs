@@ -5,12 +5,14 @@ namespace com.digitalmind.towertest
 {
     public class TimedAction : MonoBehaviour
     {
+        [HideInInspector]
+        public bool timerActive;
+        
         private Action timerFinishedAction;
         private Action tickAction;
 
         private float timeSinceStart;
         private float finishTime;
-        private bool timerStarted;
 
         private bool destroyOnFinish = true;
 
@@ -21,33 +23,33 @@ namespace com.digitalmind.towertest
             timeSinceStart = Time.time;
             finishTime = timerDuration + timeSinceStart;
 
-            timerStarted = true;
+            timerActive = true;
         }
 
         private float remainingTime;
 
         public void PauseTimer()
         {
-            if (!timerStarted) return;
+            if (!timerActive) return;
 
-            timerStarted = false;
+            timerActive = false;
             remainingTime = finishTime - timeSinceStart;
         }
 
         public void UnpauseTimer()
         {
-            if (timerStarted) return;
+            if (timerActive) return;
 
             timeSinceStart = Time.deltaTime;
             finishTime = remainingTime + timeSinceStart;
-            timerStarted = true;
+            timerActive = true;
         }
 
-        public void CancelTimer() => timerStarted = false;
+        public void CancelTimer() => timerActive = false;
 
         private void Update()
         {
-            if (timerStarted)
+            if (timerActive)
             {
                 UpdateTimer();
             }
@@ -58,7 +60,7 @@ namespace com.digitalmind.towertest
             timeSinceStart += Time.deltaTime;
             if (TimerFinished())
             {
-                timerStarted = false;
+                timerActive = false;
                 timerFinishedAction?.Invoke();
                 if (destroyOnFinish) Destroy(this);
             }

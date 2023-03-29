@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    public class Projectile : MonoBehaviour
+    public class PlayerProjectile : MonoBehaviour
     {
         public float speed;
         public float damage = 1f;
@@ -19,12 +19,12 @@ namespace com.digitalmind.towertest
             if (other.CompareTag("Enemy"))
             {
                 DamageEnemy(other.GetComponent<EnemyHitBox>().Enemy);
-                Depawn();
+                Despawn();
                 return;
             }
 
             if (other.CompareTag("Boundary"))
-                Depawn();
+                Despawn();
         }
 
         private void DamageEnemy(Enemy enemy)
@@ -32,7 +32,7 @@ namespace com.digitalmind.towertest
             enemy.TakeDamage(damage);
         }
 
-        private void Depawn()
+        private void Despawn()
         {
             Destroy(gameObject);
         }
