@@ -11,7 +11,7 @@ namespace com.digitalmind.towertest
         public float damage = 1f;
         void Update()
         {
-            transform.Translate(transform.right * (speed * Time.deltaTime));
+            transform.Translate(transform.right * (speed * Time.deltaTime), Space.World);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -19,13 +19,22 @@ namespace com.digitalmind.towertest
             if (other.CompareTag("Enemy"))
             {
                 DamageEnemy(other.GetComponent<EnemyHitBox>().Enemy);
-                Destroy(gameObject);
+                Depawn();
+                return;
             }
+
+            if (other.CompareTag("Boundary"))
+                Depawn();
         }
 
         private void DamageEnemy(Enemy enemy)
         {
             enemy.TakeDamage(damage);
+        }
+
+        private void Depawn()
+        {
+            Destroy(gameObject);
         }
     }
 }
