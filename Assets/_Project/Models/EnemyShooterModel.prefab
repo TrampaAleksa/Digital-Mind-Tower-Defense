@@ -93,8 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2720872979538706367}
+  - component: {fileID: 919344420189346661}
+  - component: {fileID: 1920348449}
   - component: {fileID: 8223151374614466682}
-  - component: {fileID: 6640339655538033854}
+  - component: {fileID: 6978040915539490214}
   m_Layer: 0
   m_Name: EnemyShooterModel
   m_TagString: Enemy
@@ -118,6 +120,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919344420189346661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720872979538706366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896030ffe5808684dba9c82905ffef29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1920348449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720872979538706366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4055c27b4b74318ac9f474f95293462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &8223151374614466682
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -132,7 +158,7 @@ CapsuleCollider:
   m_Height: 6
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6640339655538033854
+--- !u!114 &6978040915539490214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,9 +167,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2720872979538706366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66657f158f964c27af0adb75f335edb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a69fc56b8044f93810f6196d35693f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 1
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 919344420189346661}
+        m_TargetAssemblyTypeName: com.digitalmind.towertest.Enemy, ProjectAssembly
+        m_MethodName: TriggerEnemyDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2720872980157024671
 GameObject:
   m_ObjectHideFlags: 0
