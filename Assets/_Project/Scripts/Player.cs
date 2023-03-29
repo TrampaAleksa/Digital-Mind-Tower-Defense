@@ -49,4 +49,8 @@ public class Player : MonoBehaviour
     {
         playerTurret.Rotate(Vector3.up, direction * Time.deltaTime * rotSpeed);
     }
+
+
+    //TODO - optimize finding player game object
+    public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>();
 }

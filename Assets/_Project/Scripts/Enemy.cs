@@ -38,8 +38,7 @@ namespace com.digitalmind.towertest
             _enemyNavigation = gameObject.GetComponent<EnemyNavigation>();
             _enemyBehaviour = gameObject.GetComponent<EnemyBehaviour>();
             
-            //TODO - optimize finding player game object
-            _enemyNavigation.StartNavigation(GameObject.FindWithTag("Player").transform);
+            _enemyNavigation.StartNavigation(Player.Find.transform);
             
             _enemyBehaviour.SetUpBehaviour(this);
         }
