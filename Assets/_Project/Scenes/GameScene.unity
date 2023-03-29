@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 225298453}
   - component: {fileID: 225298455}
   - component: {fileID: 225298454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerHolder
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1548,6 +1548,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2720872979538706366, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
   m_PrefabInstance: {fileID: 2720872980374277792}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2720872980374277794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5133888771115290690, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+  m_PrefabInstance: {fileID: 2720872980374277792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2720872980374277800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,6 +1570,9 @@ MonoBehaviour:
   stoppingDistance: 40
   rateOfFire: 3
   damagePerShot: 2
+  shootingRange: 0
+  projectile: {fileID: 3515087465744248126, guid: 2fd79594616686b47bcaec005d02bff6, type: 3}
+  gunTip: {fileID: 2720872980374277794}
 --- !u!1001 &6016103620822072237
 PrefabInstance:
   m_ObjectHideFlags: 0

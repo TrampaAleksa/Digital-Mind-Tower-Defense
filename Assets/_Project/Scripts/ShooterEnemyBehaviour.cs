@@ -15,6 +15,7 @@ namespace com.digitalmind.towertest
         public float damagePerShot = 2f;
         public float shootingRange;
         public GameObject projectile;
+        public Transform gunTip;
 
         public override void SetUpBehaviour(Enemy enemy)
         {
@@ -27,47 +28,11 @@ namespace com.digitalmind.towertest
                 .SetProjectile(projectile)
                 .SetDamage(damagePerShot)
                 .SetRateOfFire(rateOfFire)
-                .SetRange(shootingRange);
+                .SetRange(shootingRange)
+                .SetGunTip(gunTip);
         }
-    }
+        
+        
 
-    public class ShootAtPlayer : MonoBehaviour
-    {
-        private GameObject _projectile;
-        private float _damage;
-        private float _rateOfFire;
-        private float _range;
-
-        private Player _player;
-        private void Start()
-        {
-            _player = Player.Find;
-        }
-
-        public void TryShooting(Transform startingPosition)
-        {
-            
-        }
-
-        public ShootAtPlayer SetProjectile(GameObject projectile)
-        {
-            _projectile = projectile;
-            return this;
-        }
-        public ShootAtPlayer SetDamage(float damage)
-        {
-            _damage = damage;
-            return this;
-        }
-        public ShootAtPlayer SetRateOfFire(float rateOfFire)
-        {
-            _rateOfFire = rateOfFire;
-            return this;
-        }
-        public ShootAtPlayer SetRange(float range)
-        {
-            _range = range;
-            return this;
-        }
     }
 }
