@@ -1,9 +1,8 @@
 using System;
-using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    public class RunnerEnemyBehaviour : MonoBehaviour
+    public class RunnerEnemyBehaviour : EnemyBehaviour
     {
         public float maxHealth = 5f;
         public float speed = 12f;
@@ -14,7 +13,7 @@ namespace com.digitalmind.towertest
             SetUpBehaviour(GetComponent<Enemy>());
         }
 
-        public void SetUpBehaviour(Enemy enemy)
+        public override void SetUpBehaviour(Enemy enemy)
         {
             enemy.SetMaxHealth(maxHealth);
             enemy.SetSpeed(speed);
