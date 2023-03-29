@@ -20,35 +20,12 @@ public class Player : MonoBehaviour
         _playerHealth = GetComponent<Health>();
     }
 
-    public void TakeDamage(float amount) => _playerHealth.TakeDamage(amount);
-
-    void Update()
-    {
-        HandleInput();
-    }
-
-    private void HandleInput()
-    {
-        if (Input.GetKey(KeyCode.A))
-        {
-            RotateTurret(1);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            RotateTurret(-1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            var projectileObj = Instantiate(projectile, gunTip.position, gunTip.rotation);
-        }
-    }
-
-    private void RotateTurret(int direction)
-    {
-        playerTurret.Rotate(Vector3.up, direction * Time.deltaTime * rotSpeed);
-    }
+    public void TakeDamage(float amount)
+        => _playerHealth.TakeDamage(amount);
+    public void Shoot()
+        => Instantiate(projectile, gunTip.position, gunTip.rotation);
+    public void RotateTurret(int direction)
+        => playerTurret.Rotate(Vector3.up, direction * Time.deltaTime * rotSpeed);
 
 
     //TODO - optimize finding player game object
