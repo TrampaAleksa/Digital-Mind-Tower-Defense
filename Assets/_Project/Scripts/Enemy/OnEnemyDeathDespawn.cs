@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    public class EnemyDeath : MonoBehaviour
+    public class OnEnemyDeathDespawn : MonoBehaviour, IEnemyDeathEvent
     {
-        public void TriggerEnemyDeath(Enemy enemy)
+        public void OnTriggerDeath(Enemy enemy)
         {
             Debug.Log("Enemy died.");
             Destroy(enemy.gameObject);

@@ -96,13 +96,13 @@ MonoBehaviour:
   onZeroHealth:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919344420189346661}
-        m_TargetAssemblyTypeName: com.digitalmind.towertest.Enemy, ProjectAssembly
-        m_MethodName: TriggerEnemyDeath
-        m_Mode: 1
+      - m_Target: {fileID: 1920348449}
+        m_TargetAssemblyTypeName: com.digitalmind.towertest.OnEnemyDeathEvents, ProjectAssembly
+        m_MethodName: OnTriggerDeath
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 919344420189346661}
+          m_ObjectArgumentAssemblyTypeName: com.digitalmind.towertest.Enemy, ProjectAssembly
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
