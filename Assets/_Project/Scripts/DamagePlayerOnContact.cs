@@ -7,10 +7,13 @@ namespace com.digitalmind.towertest
         private float _damage;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
-            {
-                Debug.Log($"Damaged the player: {_damage}");
-            }
+            if (!other.CompareTag("Player"))
+                return;
+            
+            var player = other.GetComponent<PlayerHitBox>().Player;
+            Debug.Log($"Damaged the player:" +
+                      $" {player.name}" +
+                      $" by {_damage}");
         }
 
         public void SetDamage(float damage)

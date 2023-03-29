@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace com.digitalmind.towertest
 {
-    public class EnemyHealth : MonoBehaviour
+    public class Health : MonoBehaviour
     {
         [SerializeField]
         private float maxHealth;
@@ -21,13 +21,15 @@ namespace com.digitalmind.towertest
         public void TakeDamage(float amount)
         {
             CurrentHealth -= amount;
-            Debug.Log($"Enemy took : {amount} damage", gameObject);
-            Debug.Log($"Enemy health : {CurrentHealth}", gameObject);
+            var mGameObject = gameObject;
+            
+            Debug.Log($"{mGameObject.name} took : {amount} damage", mGameObject);
+            Debug.Log($"{mGameObject.name} health : {CurrentHealth}", mGameObject);
            
-            onHealthChanged.Invoke(gameObject, CurrentHealth);
+            onHealthChanged.Invoke(mGameObject, CurrentHealth);
 
             if (CurrentHealth <= 0)
-                onZeroHealth.Invoke(gameObject);
+                onZeroHealth.Invoke(mGameObject);
         }
 
         public float CurrentHealth

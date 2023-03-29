@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using com.digitalmind.towertest;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public Transform playerTurret;
-    public float rotSpeed  = 1f;
+    public float rotSpeed = 1f;
 
     public Transform gunTip;
     public GameObject projectile;
 
+    private Health _playerHealth;
+
+    private void Awake()
+    {
+        gameObject.AddComponent<PlayerHitBox>().InjectPlayer(this);
+    }
+
     void Update()
     {
-       HandleInput();
+        HandleInput();
     }
 
     private void HandleInput()
@@ -21,6 +30,7 @@ public class PlayerController : MonoBehaviour
         {
             RotateTurret(1);
         }
+
         if (Input.GetKey(KeyCode.D))
         {
             RotateTurret(-1);
