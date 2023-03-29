@@ -9,35 +9,42 @@ namespace com.digitalmind.towertest
         public float maxHealth;
         private float _currentHealth;
         
-        public UnityEvent<GameObject, float> onHealthChanged;
-        public UnityEvent<GameObject> onZeroHealth;
+        public OnHealthChangedEvent onHealthChanged;
+        public OnZeroHealthEvent onZeroHealth;
 
-        private void Start()
+        private void Awake()
         {
-            onHealthChanged.AddListener(
-                (enemy, currentHealth)
-                    =>  Debug.Log($"{enemy.name} health changed to: {currentHealth}"));
-            onZeroHealth.AddListener(
-                (enemy)
-                    =>  Debug.Log($"{enemy.name} has died!"));
+            CurrentHealth = maxHealth;
         }
 
         public void TakeDamage(float amount)
         {
             CurrentHealth -= amount;
-            Debug.Log($"Enemy took : {amount} damage");
+            Debug.Log($"Enemy took : {amount} damage", gameObject);
+            Debug.Log($"Enemy health : {CurrentHealth}", gameObject);
            
-            
             onHealthChanged.Invoke(gameObject, CurrentHealth);
 
             if (CurrentHealth <= 0)
                 onZeroHealth.Invoke(gameObject);
         }
-        
+
         public float CurrentHealth
         {
             get => _currentHealth;
             set => _currentHealth = Mathf.Clamp(value, 0, maxHealth);
         }
+    }
+
+    
+    
+    [Serializable]
+    public class OnZeroHealthEvent : UnityEvent<GameObject>
+    {
+    }
+    
+    [Serializable]
+    public class OnHealthChangedEvent : UnityEvent<GameObject, float>
+    {
     }
 }
