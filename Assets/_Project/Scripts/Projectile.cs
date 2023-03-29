@@ -19,6 +19,7 @@ namespace com.digitalmind.towertest
             if (other.CompareTag("Enemy"))
             {
                 DamageEnemy(other.GetComponent<EnemyHitBox>().Enemy);
+                Destroy(gameObject);
             }
         }
 
