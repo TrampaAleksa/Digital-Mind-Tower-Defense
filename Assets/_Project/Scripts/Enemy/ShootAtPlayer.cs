@@ -28,7 +28,7 @@ namespace com.digitalmind.towertest
 
         private void TryShooting()
         {
-            var lookingAtPlayer = Physics.Raycast(_gunTip.position, _gunTip.forward, LayerMask.GetMask("Player"));
+            var lookingAtPlayer = Physics.Raycast(_gunTip.position, _gunTip.right, 100f, LayerMask.GetMask("Player"));
             if (!lookingAtPlayer)
                 return;
 

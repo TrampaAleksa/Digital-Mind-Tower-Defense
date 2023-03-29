@@ -196,6 +196,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2720872979538706367}
     m_Modifications:
+    - target: {fileID: 5689778009743776491, guid: d37083e49035ffc439522ea86c7c6b2a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689778009743776491, guid: d37083e49035ffc439522ea86c7c6b2a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689778009743776491, guid: d37083e49035ffc439522ea86c7c6b2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 7223992469094397141, guid: d37083e49035ffc439522ea86c7c6b2a, type: 3}
       propertyPath: m_Name
       value: EnemyShooterModel
