@@ -1489,6 +1489,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_Speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720872980374277795, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215413768328047964, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215413768328047964, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215413768328047964, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
 --- !u!1001 &6016103620822072237
@@ -1555,6 +1583,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1936826294, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
+      propertyPath: m_Speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936826294, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936826294, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738710, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_Name
       value: EnemyRunnerHolder
