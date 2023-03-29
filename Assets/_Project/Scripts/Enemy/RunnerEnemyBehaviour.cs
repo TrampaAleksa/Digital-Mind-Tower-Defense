@@ -14,7 +14,8 @@ namespace com.digitalmind.towertest
             enemy.SetSpeed(speed);
             enemy.gameObject.AddComponent<DamagePlayerOnContact>()
                 .SetDamage(damage);
-            enemy.gameObject.AddComponent<DestroyOnPlayerContact>();
+            enemy.gameObject.AddComponent<DespawnOnPlayerContact>()
+                .SetEnemy(enemy);
         }
     }
 }

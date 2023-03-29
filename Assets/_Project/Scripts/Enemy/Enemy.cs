@@ -27,8 +27,8 @@ namespace com.digitalmind.towertest
 
         public void TakeDamage(float amount)
             => _health.TakeDamage(amount);
-        // public void TriggerEnemyDeath()
-        //     => _onEnemyDeathEvents.TriggerEnemyDeath(this);
+        public void TriggerEnemyDeath()
+            => _onEnemyDeathEvents.TriggerEnemyDeathEvents(this);
         public void SetSpeed(float speed)
             => _enemyNavigation.SetSpeed(speed);
         public void SetStoppingDistance(float stoppingDistance) =>
@@ -39,7 +39,7 @@ namespace com.digitalmind.towertest
         private void Init()
         {
             gameObject.AddComponent<EnemyHitBox>().InjectEnemy(this);
-            // _onEnemyDeathEvents = gameObject.GetComponent<OnEnemyDeathEvents>();
+            _onEnemyDeathEvents = gameObject.GetComponent<OnEnemyDeathEvents>();
             _health = gameObject.GetComponent<Health>();
             _enemyNavigation = gameObject.GetComponent<EnemyNavigation>();
             _enemyBehaviour = gameObject.GetComponent<EnemyBehaviour>();

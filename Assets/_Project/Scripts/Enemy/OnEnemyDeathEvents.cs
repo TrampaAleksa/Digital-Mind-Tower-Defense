@@ -1,13 +1,21 @@
+using System;
 using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    public class OnEnemyDeathEvents : MonoBehaviour, IEnemyDeathEvent
+    /// <summary>
+    /// Composite Pattern - Any <see cref="IEnemyDeathEvent"/> present on the enemy
+    /// will get triggered once <see cref="Enemy.TriggerEnemyDeath"/> is called.
+    /// This allows us to add as many death events we want.
+    /// </summary>
+    public class OnEnemyDeathEvents : MonoBehaviour
     {
-        public void OnTriggerDeath(Enemy enemy)
+        public void TriggerEnemyDeathEvents(Enemy enemy)
         {
-            Debug.Log("Enemy died.");
-            Destroy(enemy.gameObject);
+            var deathEvents = gameObject.GetComponents<IEnemyDeathEvent>();
+
+            foreach (var deathEvent in deathEvents)
+                deathEvent.OnTriggerDeath(enemy);
         }
     }
 }

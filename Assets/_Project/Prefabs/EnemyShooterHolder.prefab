@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2720872980374277795}
   - component: {fileID: 2720872980374277794}
   - component: {fileID: 2720872980374277800}
+  - component: {fileID: 960636378820251861}
+  - component: {fileID: 7838961848632531918}
   m_Layer: 0
   m_Name: EnemyShooterHolder
   m_TagString: Enemy
@@ -96,13 +98,13 @@ MonoBehaviour:
   onZeroHealth:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1920348449}
-        m_TargetAssemblyTypeName: com.digitalmind.towertest.OnEnemyDeathEvents, ProjectAssembly
-        m_MethodName: OnTriggerDeath
-        m_Mode: 2
+      - m_Target: {fileID: 919344420189346661}
+        m_TargetAssemblyTypeName: com.digitalmind.towertest.Enemy, ProjectAssembly
+        m_MethodName: TriggerEnemyDeath
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 919344420189346661}
-          m_ObjectArgumentAssemblyTypeName: com.digitalmind.towertest.Enemy, ProjectAssembly
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -162,6 +164,31 @@ MonoBehaviour:
   shootingRange: 40
   projectile: {fileID: 3515087465744248126, guid: a200c7c8b213f604987b9a79197668ce, type: 3}
   gunTip: {fileID: 5133888771115290690}
+--- !u!114 &960636378820251861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720872979538706366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72f3a0fa14f42e098c79db9b949d759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinObj: {fileID: 7311800627998116652, guid: 824779b54fd06da44abc549e4b704706, type: 3}
+--- !u!114 &7838961848632531918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720872979538706366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28725bb1a0b4f719ecc9eb2f8c79451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &705123778818656937
 PrefabInstance:
   m_ObjectHideFlags: 0
