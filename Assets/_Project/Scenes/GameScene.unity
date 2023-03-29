@@ -1053,6 +1053,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 458711287}
     m_Modifications:
+    - target: {fileID: 1936826288, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738710, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_Name
       value: EnemyRunnerModel
