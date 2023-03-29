@@ -188,9 +188,35 @@ MonoBehaviour:
   - {fileID: 371244350}
   - {fileID: 501650379}
   spawnInterval: 2
+--- !u!1 &225298450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3186655795922846621, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+  m_PrefabInstance: {fileID: 3186655796100729743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &225298451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3186655795922846620, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+  m_PrefabInstance: {fileID: 3186655796100729743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &225298457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225298450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ecc2efeed14efd975eee747b058793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationObj: {fileID: 297176442}
+  rotSpeed: 30
+  gunTip: {fileID: 746790680}
+  projectile: {fileID: 3515087465744248126, guid: 2fd79594616686b47bcaec005d02bff6, type: 3}
+--- !u!4 &297176442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3186655795860244213, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
   m_PrefabInstance: {fileID: 3186655796100729743}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &371244349
@@ -734,6 +760,11 @@ Transform:
   m_Father: {fileID: 71884121}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &746790680 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9170517200317935418, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+  m_PrefabInstance: {fileID: 3186655796100729743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &865988580
 GameObject:
   m_ObjectHideFlags: 0

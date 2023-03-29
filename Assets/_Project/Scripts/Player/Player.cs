@@ -6,28 +6,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Transform playerTurret;
-    public float rotSpeed = 1f;
-
-    public Transform gunTip;
-    public GameObject projectile;
-
     private Health _playerHealth;
+    private PlayerTurret _playerTurret;
 
     private void Awake()
     {
         gameObject.AddComponent<PlayerHitBox>().InjectPlayer(this);
         _playerHealth = GetComponent<Health>();
+        _playerTurret = GetComponent<PlayerTurret>();
     }
 
     public void TakeDamage(float amount)
         => _playerHealth.TakeDamage(amount);
     public void Shoot()
-        => Instantiate(projectile, gunTip.position, gunTip.rotation);
+        => _playerTurret.Shoot();
     public void RotateTurret(int direction)
-        => playerTurret.Rotate(Vector3.up, direction * Time.deltaTime * rotSpeed);
+        => _playerTurret.RotateTurret(direction);
 
 
     //TODO - optimize finding player game object
     public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>();
+}
+
+public enum Direction
+{
+    Clockwise,
+    CounterClockwise
 }
