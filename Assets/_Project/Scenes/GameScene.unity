@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 225298452}
   m_Layer: 0
   m_Name: PlayerTurretHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,45 +1491,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
---- !u!1 &2720872980374277793 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2720872979538706366, guid: f95543aee6872804c9b8b12b12f83444, type: 3}
-  m_PrefabInstance: {fileID: 2720872980374277792}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2720872980374277794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720872980374277793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa60780066192e4a8a9f3d3f72a947a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!195 &2720872980374277795
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720872980374277793}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1.8
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 4
-  m_BaseOffset: 2.95
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
 --- !u!1001 &6016103620822072237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1594,10 +1555,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1936826295, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 225298452}
     - target: {fileID: 7953428380926738710, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_Name
       value: EnemyRunnerHolder
