@@ -10,10 +10,9 @@ namespace com.digitalmind.towertest
             if (!other.CompareTag("Player"))
                 return;
             
+
             var player = other.GetComponent<PlayerHitBox>().Player;
-            Debug.Log($"Damaged the player:" +
-                      $" {player.name}" +
-                      $" by {_damage}");
+            player.TakeDamage(_damage);
         }
 
         public void SetDamage(float damage)

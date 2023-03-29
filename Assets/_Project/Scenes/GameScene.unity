@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 225298451}
   - component: {fileID: 225298452}
   - component: {fileID: 225298453}
+  - component: {fileID: 225298455}
   - component: {fileID: 225298454}
   m_Layer: 0
   m_Name: PlayerHolder
@@ -268,6 +269,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &225298455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225298450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a69fc56b8044f93810f6196d35693f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &297176442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6016103620548556503, guid: 5ff68640b9726ae40a5ed395dae9827d, type: 3}

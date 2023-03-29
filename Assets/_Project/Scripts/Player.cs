@@ -17,7 +17,10 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         gameObject.AddComponent<PlayerHitBox>().InjectPlayer(this);
+        _playerHealth = GetComponent<Health>();
     }
+
+    public void TakeDamage(float amount) => _playerHealth.TakeDamage(amount);
 
     void Update()
     {
