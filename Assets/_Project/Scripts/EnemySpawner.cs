@@ -20,19 +20,22 @@ namespace com.digitalmind.towertest
             StartSpawnEnemyLoop();
         }
         
-        
 
         private void StartSpawnEnemyLoop()
         {
             _timedAction.StartTimedAction(StartSpawnEnemyLoop, spawnInterval);
             SpawnEnemy();
         }
-        private void SpawnEnemy()
+        private Enemy SpawnEnemy()
         {
             var spawnPointIndex = Random.Range(0, spawnPoints.Length);
             var enemyIndex = Random.Range(0, enemyObjects.Length);
 
-            Instantiate(enemyObjects[enemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            return Instantiate(
+                enemyObjects[enemyIndex],
+                spawnPoints[spawnPointIndex].position,
+                spawnPoints[spawnPointIndex].rotation)
+                .GetComponent<Enemy>();
         }
     }
 }

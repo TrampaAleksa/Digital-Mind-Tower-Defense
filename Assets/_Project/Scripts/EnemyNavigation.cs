@@ -9,19 +9,15 @@ namespace com.digitalmind.towertest
     public class EnemyNavigation : MonoBehaviour
     {
         private NavMeshAgent _agent;
-        public PlayerController player;
 
         private void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
         }
 
-        private void Update()
+        public void StartNavigation(Transform target)
         {
-            if (Input.GetKeyDown(KeyCode.N))
-            {
-                _agent.SetDestination(player.transform.position);
-            }
+            _agent.SetDestination(target.position);
         }
     }
 }

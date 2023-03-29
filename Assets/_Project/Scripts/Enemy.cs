@@ -11,6 +11,7 @@ namespace com.digitalmind.towertest
     {
         private EnemyDeath _enemyDeath;
         private EnemyHealth _enemyHealth;
+        private EnemyNavigation _enemyNavigation;
 
         private void Awake()
         {
@@ -26,6 +27,9 @@ namespace com.digitalmind.towertest
             gameObject.AddComponent<EnemyHitBox>().InjectEnemy(this);
             _enemyDeath = gameObject.GetComponent<EnemyDeath>();
             _enemyHealth = gameObject.GetComponent<EnemyHealth>();
+            _enemyNavigation = gameObject.GetComponent<EnemyNavigation>();
+            //TODO - optimize finding player game object
+            _enemyNavigation.StartNavigation(GameObject.FindWithTag("Player").transform);
         }
     }
 }
