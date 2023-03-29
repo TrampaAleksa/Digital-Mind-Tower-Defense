@@ -21,15 +21,22 @@ namespace com.digitalmind.towertest
             enemy.SetMaxHealth(maxHealth);
             enemy.SetSpeed(speed);
             enemy.SetStoppingDistance(stoppingDistance);
+
+            enemy.gameObject
+                .AddComponent<ShootAtPlayer>()
+                .SetProjectile(projectile)
+                .SetDamage(damagePerShot)
+                .SetRateOfFire(rateOfFire)
+                .SetRange(shootingRange);
         }
     }
 
     public class ShootAtPlayer : MonoBehaviour
     {
-        public GameObject Projectile { get; set; }
-        public float Damage { get; set; }
-        public float RateOfFire { get; set; }
-        public float Range { get; set; }
+        private GameObject _projectile;
+        private float _damage;
+        private float _rateOfFire;
+        private float _range;
 
         private Player _player;
         private void Start()
@@ -41,9 +48,26 @@ namespace com.digitalmind.towertest
         {
             
         }
-        
-        
 
-
+        public ShootAtPlayer SetProjectile(GameObject projectile)
+        {
+            _projectile = projectile;
+            return this;
+        }
+        public ShootAtPlayer SetDamage(float damage)
+        {
+            _damage = damage;
+            return this;
+        }
+        public ShootAtPlayer SetRateOfFire(float rateOfFire)
+        {
+            _rateOfFire = rateOfFire;
+            return this;
+        }
+        public ShootAtPlayer SetRange(float range)
+        {
+            _range = range;
+            return this;
+        }
     }
 }
