@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2720872979423138750}
   - component: {fileID: 2720872979423138749}
   - component: {fileID: 2720872979423138748}
-  - component: {fileID: 2720872979423138747}
   m_Layer: 0
   m_Name: EnemyShooterBody
   m_TagString: Enemy
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2720872979423138747
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720872979423138746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2720872979538706366
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2720872979538706367}
+  - component: {fileID: 8223151374614466682}
+  - component: {fileID: 6640339655538033854}
   m_Layer: 0
   m_Name: EnemyShooterModel
   m_TagString: Enemy
@@ -131,6 +118,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8223151374614466682
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720872979538706366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.8
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6640339655538033854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720872979538706366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66657f158f964c27af0adb75f335edb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2720872980157024671
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +187,6 @@ GameObject:
   - component: {fileID: 2720872981133699844}
   - component: {fileID: 2720872981133699847}
   - component: {fileID: 2720872981133699846}
-  - component: {fileID: 2720872981133699845}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Enemy
@@ -190,8 +202,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2720872981133699843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.456, y: 0, z: 0}
-  m_LocalScale: {x: 1.1248, y: 0.20631, z: 0.2749804}
+  m_LocalPosition: {x: -0.158, y: 0, z: 0}
+  m_LocalScale: {x: 0.4267266, y: 0.20631, z: 0.17463455}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2720872980157024736}
@@ -247,16 +259,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2720872981133699845
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720872981133699843}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

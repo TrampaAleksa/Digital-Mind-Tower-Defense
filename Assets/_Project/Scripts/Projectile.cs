@@ -18,7 +18,7 @@ namespace com.digitalmind.towertest
         {
             if (other.CompareTag("Enemy"))
             {
-                DamageEnemy(other.GetComponent<Enemy>());
+                DamageEnemy(other.GetComponent<EnemyHitBox>().Enemy);
             }
         }
 

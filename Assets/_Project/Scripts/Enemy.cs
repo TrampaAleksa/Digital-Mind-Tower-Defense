@@ -11,15 +11,15 @@ namespace com.digitalmind.towertest
         
         private float _currentHealth;
 
+        private void Awake()
+        {
+        }
+        
         public void TakeDamage(float amount)
         {
             CurrentHealth -= amount;
             Debug.Log($"Enemy took : {amount} damage");
         }
-        
-        
-        
-        
         public float CurrentHealth
         {
             get => _currentHealth;
