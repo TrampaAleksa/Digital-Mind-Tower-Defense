@@ -1,21 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace com.digitalmind.towertest
 {
     public class UIHandler : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public Image[] lives;
+        public LifeColor[] colors;
 
-        // Update is called once per frame
-        void Update()
+        public void Start()
         {
-        
+            foreach (var lifeImg in lives)
+            {
+                lifeImg.color = colors[0].color;
+            }
         }
     }
 }
