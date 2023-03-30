@@ -16,6 +16,7 @@ namespace com.digitalmind.towertest
         public void TriggerPickup()
         {
             Debug.Log($"Picked up coin and gained {points} points");
+            ScoreHandler.Instance.AddScore(points);
             Destroy(gameObject);
         }
 
