@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    public class CoinClickDetection : MonoBehaviour
+    public class PickupClickDetection : MonoBehaviour
     {
         private Camera _camera;
         private RaycastHit _hit;
@@ -18,14 +18,13 @@ namespace com.digitalmind.towertest
         private void Update()
         {
             if (HasTouchedCoinWindows())
-                CoinClicked(_hit.collider.gameObject);
+                PickupClicked(_hit.collider.gameObject);
         }
 
 
-        private void CoinClicked(GameObject coinObj)
+        private void PickupClicked(GameObject pickupObj)
         {
-            Debug.Log("Clicked on coin");
-            Destroy(coinObj);
+            pickupObj.GetComponent<IPickup>().TriggerPickup();
         }
 
         private bool HasTouchedCoinWindows()
