@@ -15,11 +15,10 @@ namespace com.digitalmind.towertest
         {
             SetLifeColor(colors[0].color);
         }
-
-        public void OnHealthChange(GameObject player, float newValue)
+        
+        public void OnHealthChange(Health playerHealth, float newValue)
         {
-            var playerHealth = player.GetComponent<Health>();
-            var healthPercentage = (playerHealth.CurrentHealth / playerHealth.MaxHealth) * 100f;
+            var healthPercentage = (newValue / playerHealth.MaxHealth) * 100f;
             
             if (healthPercentage >= 66)
             {

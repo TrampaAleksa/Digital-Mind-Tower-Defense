@@ -26,7 +26,7 @@ namespace com.digitalmind.towertest
             Debug.Log($"{mGameObject.name} took : {amount} damage", mGameObject);
             Debug.Log($"{mGameObject.name} health : {CurrentHealth}", mGameObject);
            
-            onHealthChanged.Invoke(mGameObject, CurrentHealth);
+            onHealthChanged.Invoke(this, CurrentHealth);
 
             if (CurrentHealth <= 0)
                 onZeroHealth.Invoke(mGameObject);
@@ -56,7 +56,7 @@ namespace com.digitalmind.towertest
     }
     
     [Serializable]
-    public class OnHealthChangedEvent : UnityEvent<GameObject, float>
+    public class OnHealthChangedEvent : UnityEvent<Health, float>
     {
     }
 }
