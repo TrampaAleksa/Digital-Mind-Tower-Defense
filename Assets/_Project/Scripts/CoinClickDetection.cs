@@ -8,6 +8,7 @@ namespace com.digitalmind.towertest
     public class CoinClickDetection : MonoBehaviour
     {
         private Camera _camera;
+        private RaycastHit _hit;
 
         private void Awake()
         {
@@ -17,13 +18,14 @@ namespace com.digitalmind.towertest
         private void Update()
         {
             if (HasTouchedCoinWindows())
-                CoinClicked();
+                CoinClicked(_hit.collider.gameObject);
         }
 
 
-        private void CoinClicked()
+        private void CoinClicked(GameObject coinObj)
         {
             Debug.Log("Clicked on coin");
+            Destroy(coinObj);
         }
 
         private bool HasTouchedCoinWindows()
@@ -32,7 +34,7 @@ namespace com.digitalmind.towertest
                 return false;
             
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            return Physics.Raycast(ray, 100f, LayerMask.GetMask("Pickup"));
+            return Physics.Raycast(ray, out _hit, 100f, LayerMask.GetMask("Pickup"));
         }
 
         
