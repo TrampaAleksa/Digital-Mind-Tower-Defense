@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace com.digitalmind.towertest
@@ -9,28 +10,33 @@ namespace com.digitalmind.towertest
     public class UIHandler : MonoBehaviour
     {
         public Image[] lives;
-        public LifeColor[] colors; // TODO - Use single struct with the three colors predefined inside
+        public LifeColors colors; // TODO - Use single struct with the three colors predefined inside
+        
+        private const int HighHealthPercentage = 60;
+        private const int LowHealthPercentage = 20;
 
         public void Start()
         {
-            SetLifeColor(colors[0].color);
+            SetLifeColor(colors.highColor);
         }
         
         public void OnHealthChange(Health playerHealth, float newValue)
         {
             var healthPercentage = (newValue / playerHealth.MaxHealth) * 100f;
+
+            if (healthPercentage >= HighHealthPercentage)
+            {
+                SetLifeColor(colors.highColor);
+                return;
+            }
             
-            if (healthPercentage >= 66)
+            if (healthPercentage >= LowHealthPercentage)
             {
-                SetLifeColor(colors[0].color);
+                SetLifeColor(colors.midColor);
                 return;
             }
-            if (healthPercentage >= 33)
-            {
-                SetLifeColor(colors[1].color);
-                return;
-            }
-            SetLifeColor(colors[2].color);
+            
+            SetLifeColor(colors.lowColor);
             return;
         }
 

@@ -847,17 +847,6 @@ MonoBehaviour:
   rotSpeed: 30
   gunTip: {fileID: 746790680}
   projectile: {fileID: 3515087465744248126, guid: 2fd79594616686b47bcaec005d02bff6, type: 3}
---- !u!114 &225298460 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
-  m_PrefabInstance: {fileID: 3186655796100729743}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225298450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a69fc56b8044f93810f6196d35693f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &297176442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3186655795860244213, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
@@ -2417,13 +2406,9 @@ MonoBehaviour:
   - {fileID: 1967435508}
   - {fileID: 2134261874}
   colors:
-  - color: {r: 0.18431373, g: 1, b: 0, a: 1}
-    name: 2
-  - color: {r: 1, g: 0.94960225, b: 0, a: 1}
-    name: 1
-  - color: {r: 1, g: 0.10015053, b: 0, a: 1}
-    name: 0
-  playerHealth: {fileID: 225298460}
+    lowColor: {r: 1, g: 0.2112661, b: 0.20392156, a: 1}
+    midColor: {r: 1, g: 0.926167, b: 0.20392156, a: 1}
+    highColor: {r: 0.41753602, g: 1, b: 0.20392156, a: 1}
 --- !u!1001 &712580503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6930,6 +6915,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 440387540}
     m_Modifications:
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 679716509}
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHealthChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: com.digitalmind.towertest.UIHandler, ProjectAssembly
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3186655795922846620, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
       propertyPath: m_RootOrder
       value: 2
