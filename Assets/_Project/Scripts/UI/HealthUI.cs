@@ -17,6 +17,7 @@ namespace com.digitalmind.towertest
             SetLifeColor(colors.highColor);
         }
         
+        //TODO- Remove new value and just pass in health
         public void OnHealthChange(Health playerHealth, float newValue)
         {
             var currentHealth = playerHealth.CurrentHealth;
