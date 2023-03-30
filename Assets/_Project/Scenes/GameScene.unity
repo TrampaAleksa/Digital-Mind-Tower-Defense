@@ -2319,6 +2319,7 @@ GameObject:
   - component: {fileID: 679716508}
   - component: {fileID: 679716507}
   - component: {fileID: 679716509}
+  - component: {fileID: 679716510}
   m_Layer: 5
   m_Name: GameStatusPanel
   m_TagString: Untagged
@@ -2399,6 +2400,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a473bbe1c12ff7a4981b115d5ab6c0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &679716510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679716505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8814594c67441eae554809802440cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   lives:
   - {fileID: 1365494546}
   - {fileID: 1617157554}
@@ -2406,9 +2419,9 @@ MonoBehaviour:
   - {fileID: 1967435508}
   - {fileID: 2134261874}
   colors:
-    lowColor: {r: 1, g: 0.2112661, b: 0.20392156, a: 1}
-    midColor: {r: 1, g: 0.926167, b: 0.20392156, a: 1}
-    highColor: {r: 0.41753602, g: 1, b: 0.20392156, a: 1}
+    lowColor: {r: 1, g: 0.22814953, b: 0.18431371, a: 1}
+    midColor: {r: 1, g: 0.91880685, b: 0.18431371, a: 1}
+    highColor: {r: 0.34706205, g: 1, b: 0.18431371, a: 1}
 --- !u!1001 &712580503
 PrefabInstance:
   m_ObjectHideFlags: 0
