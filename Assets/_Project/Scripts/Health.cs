@@ -44,6 +44,8 @@ namespace com.digitalmind.towertest
             if (CurrentHealth > maxHealth)
                 CurrentHealth = maxHealth;
         }
+
+        public float MaxHealth => maxHealth;
     }
 
     

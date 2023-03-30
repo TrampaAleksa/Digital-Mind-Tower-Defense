@@ -9,14 +9,37 @@ namespace com.digitalmind.towertest
     public class UIHandler : MonoBehaviour
     {
         public Image[] lives;
-        public LifeColor[] colors;
+        public LifeColor[] colors; // TODO - Use single struct with the three colors predefined inside
 
         public void Start()
         {
-            foreach (var lifeImg in lives)
+            SetLifeColor(colors[0].color);
+        }
+
+        public void OnHealthChange(GameObject player, float newValue)
+        {
+            var playerHealth = player.GetComponent<Health>();
+            var healthPercentage = (playerHealth.CurrentHealth / playerHealth.MaxHealth) * 100f;
+            
+            if (healthPercentage >= 66)
             {
-                lifeImg.color = colors[0].color;
+                SetLifeColor(colors[0].color);
+                return;
             }
+            if (healthPercentage >= 33)
+            {
+                SetLifeColor(colors[1].color);
+                return;
+            }
+            SetLifeColor(colors[2].color);
+            return;
+        }
+
+
+        private void SetLifeColor(Color color)
+        {
+            foreach (var lifeImg in lives)
+                lifeImg.color = color;
         }
     }
 }
