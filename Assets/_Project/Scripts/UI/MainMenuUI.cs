@@ -7,7 +7,7 @@ public class MainMenuUI : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("GameScene"); //TODO - Wrap scene loading logic
     }
 
     public void OpenLeaderboard()
