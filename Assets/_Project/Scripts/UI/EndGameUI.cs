@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 public class EndGameUI : MonoBehaviour
 {
     public TextMeshProUGUI scoreDisplay;
+    public GameObject gameUIPanel;
 
     public void DisplayEndGamePanel()
     {
+        //TODO - Properly extract pause logic
+        //TODO - Disable input and remove game ui once game is over / paused
         PauseGameHandler.Instance.SetIsPaused(true); //TODO - Ui shouldn't handle pause logic
         DisplayScore();
         gameObject.SetActive(true);
+        gameUIPanel.SetActive(false);
     }
     
     public void DisplayScore()
@@ -27,6 +31,7 @@ public class EndGameUI : MonoBehaviour
 
     public void RestartGame()
     {
+        gameUIPanel.SetActive(true);
         PauseGameHandler.Instance.SetIsPaused(false); 
         SceneManager.LoadScene("GameScene");
     }
