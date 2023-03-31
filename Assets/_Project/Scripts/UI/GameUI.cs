@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace com.digitalmind.towertest
 {
-    public class UIHandler : MonoBehaviour
+    public class GameUI : MonoBehaviour
     {
         private HealthUI _healthUI;
         private ScoreUI _scoreUI;
