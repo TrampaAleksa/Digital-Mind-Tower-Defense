@@ -9,6 +9,7 @@ public class EndGameUI : MonoBehaviour
 
     public void DisplayEndGamePanel()
     {
+        PauseGameHandler.Instance.SetIsPaused(true); //TODO - Ui shouldn't handle pause logic
         gameObject.SetActive(true);
     }
     
