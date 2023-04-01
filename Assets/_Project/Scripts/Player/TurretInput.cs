@@ -14,28 +14,14 @@ namespace com.digitalmind.towertest
         
         private void Update()
         {
-            // HandleInput();
             HandleInputSystem();
         }
 
-        private void HandleInput()
-        {
-            if (Input.GetKey(KeyCode.A))
-                player.RotateTurret(Direction.Clockwise);
-
-            if (Input.GetKey(KeyCode.D))
-                player.RotateTurret(Direction.CounterClockwise);
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                player.Shoot();
-        }
 
         private void HandleInputSystem()
         {
             var rotationInput = input.actions["Rotate"].ReadValue<Vector2>();
             
-            Debug.Log(rotationInput.y);
-
             var inputSensitivity = 0.1f;
             if (rotationInput.y > inputSensitivity)
                 player.RotateTurret(Direction.Clockwise);
