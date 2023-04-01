@@ -3172,10 +3172,10 @@ RectTransform:
   m_Father: {fileID: 143467237}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 290, y: -35}
+  m_SizeDelta: {x: 570, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403140328
 MonoBehaviour:
@@ -4081,7 +4081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2088391581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4157,13 +4157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   singleResultPrefab: {fileID: 9057166184617208951, guid: 27769d607fcff8f4da3af849ab6c1d78, type: 3}
   resultsVerticalLayout: {fileID: 143467236}
-  testResults:
-  - rank: 1
-    name: Player 1
-    score: 35
-  - rank: 2
-    name: Player 2
-    score: 335
 --- !u!1001 &2127475914
 PrefabInstance:
   m_ObjectHideFlags: 0
