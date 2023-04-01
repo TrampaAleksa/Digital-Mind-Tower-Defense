@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 298698948}
   - component: {fileID: 298698950}
   - component: {fileID: 298698949}
+  - component: {fileID: 298698951}
   m_Layer: 5
   m_Name: GameInputPanel
   m_TagString: Untagged
@@ -1152,6 +1153,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298698947}
   m_CullTransparentMesh: 1
+--- !u!114 &298698951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298698947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b08faf0884429f4eb7e06d493682194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidInputsPanel: {fileID: 209680043}
 --- !u!1 &371244349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,7 +1794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_AnchorMax.x

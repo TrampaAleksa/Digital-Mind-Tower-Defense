@@ -19,6 +19,8 @@ namespace com.digitalmind.towertest
         {
             if (HasTouchedCoinWindows())
                 PickupClicked(_hit.collider.gameObject);
+            if (HasTouchedCoinAndroid())
+                PickupClicked(_hit.collider.gameObject);
         }
 
 
