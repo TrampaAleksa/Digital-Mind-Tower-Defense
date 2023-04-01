@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace com.digitalmind.towertest
@@ -23,7 +24,16 @@ namespace com.digitalmind.towertest
         private  void LoadLeaderboard()
         {
             ClearCurrentLeaderboardResults();
-            InflateLeaderboardResults(testResults);
+            var resultsToInflate = ReadLeaderboardResults();
+            InflateLeaderboardResults(resultsToInflate);
+        }
+
+        private List<LeaderboardResultModel> ReadLeaderboardResults()
+        {
+            var jsonResults = JsonConvert.SerializeObject(testResults);
+            var resultsFromJson = JsonConvert.DeserializeObject<List<LeaderboardResultModel>>(jsonResults);
+
+            return resultsFromJson;
         }
         
         private void ClearCurrentLeaderboardResults()
