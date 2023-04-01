@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -17,10 +18,32 @@ namespace com.digitalmind.towertest
             return results;
         }
 
-        public void TryAddingResultToFile(string name, float score)
+        public void TryAddingResultToFile(string name, int score)
         {
+            var currentResults = ReadResultsFromFile() ;
+            currentResults.Add(
+                new LeaderboardResultModel{
+                    rank = currentResults.Count,
+                    name = name, 
+                    score = score
+                });
+
+            var newResults = currentResults.OrderByDescending
+                (r => r.score).ToList();
+
+            newResults.RemoveAt(newResults.Count-1);
+
+            for(int i=0; i<newResults.Count; i++) {
+                newResults[i].rank = i+1;
+            }
+
+            var newResultJson = JsonConvert.SerializeObject(newResults);
+
+            WriteToFile(FileName,newResultJson);
         }
 
+        
+        
         public void WriteInitialLeaderboard()
         {
             if (ReadFromFIle(FileName) == "File not found")
