@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,29 @@ namespace com.digitalmind.towertest
 {
     public class LeaderboardUI : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public LeaderboardResult singleResultPrefab;
+        public GameObject resultsVerticalLayout;
         
-        }
+        public List<LeaderboardResultModel> testResults;
 
-        // Update is called once per frame
-        void Update()
+        private List<LeaderboardResult> _resultContainers;
+
+        public void Start()
         {
-        
+            foreach (var testResult in testResults)
+            {
+                var leaderboardResult = Instantiate(singleResultPrefab, resultsVerticalLayout.transform);
+                leaderboardResult.SetResult(testResult);
+            }
         }
+    }
+
+
+    [Serializable]
+    public class LeaderboardResultModel
+    {
+        public int rank;
+        public string name;
+        public int score;
     }
 }
