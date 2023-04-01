@@ -27,7 +27,7 @@ namespace com.digitalmind.towertest
 
         public void OpenMainMenu()
         {
-            pauseGameHandler.SetIsPaused(true);
+            pauseGameHandler.SetIsPaused(false);
             SceneManager.LoadScene("MainMenu");
         }
     }

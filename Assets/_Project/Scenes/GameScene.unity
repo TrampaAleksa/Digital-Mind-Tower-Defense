@@ -3617,8 +3617,8 @@ MonoBehaviour:
   onScoreChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 679716511}
-        m_TargetAssemblyTypeName: com.digitalmind.towertest.ScoreUI, ProjectAssembly
+      - m_Target: {fileID: 679716509}
+        m_TargetAssemblyTypeName: com.digitalmind.towertest.GameUI, ProjectAssembly
         m_MethodName: OnScoreChange
         m_Mode: 0
         m_Arguments:

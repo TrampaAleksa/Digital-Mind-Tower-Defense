@@ -8,6 +8,8 @@ namespace com.digitalmind.towertest
 {
     public class LeaderboardUI : MonoBehaviour
     {
+        public GameObject mainMenuPanel;
+        
         public LeaderboardResult singleResultPrefab;
         public GameObject resultsVerticalLayout;
         
@@ -52,6 +54,12 @@ namespace com.digitalmind.towertest
                 _resultContainers.Add(leaderboardResult);
                 leaderboardResult.SetResult(result);
             }
+        }
+
+        public void BackToMenu()
+        {
+            mainMenuPanel.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 

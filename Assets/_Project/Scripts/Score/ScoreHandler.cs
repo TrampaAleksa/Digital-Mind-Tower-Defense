@@ -33,5 +33,5 @@ namespace com.digitalmind.towertest
     }
     
     [Serializable]
-    public class OnScoreChangedEvent : UnityEvent<float>{}
+    public class OnScoreChangedEvent : UnityEvent<int>{}
 }

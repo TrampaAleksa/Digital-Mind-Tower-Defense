@@ -20,7 +20,7 @@ namespace com.digitalmind.towertest
         public void OnHealthChange(Health playerHealth, float newValue) =>
             _healthUI.OnHealthChange(playerHealth, newValue);
 
-        public void OnScoreChange(float newValue)
+        public void OnScoreChange(int newValue)
             => _scoreUI.OnScoreChange(newValue);
     }
 }

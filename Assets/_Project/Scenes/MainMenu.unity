@@ -2657,7 +2657,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 961164208}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2088391584}
+        m_TargetAssemblyTypeName: com.digitalmind.towertest.LeaderboardUI, ProjectAssembly
+        m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &961164208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3995,6 +4007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5671023361cae9348ab36a922a2106fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leaderboardPanel: {fileID: 2088391580}
 --- !u!1 &2056034210
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,6 +4168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa83c91f92d38124b8c7381658f94373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuPanel: {fileID: 2011233820}
   singleResultPrefab: {fileID: 9057166184617208951, guid: 27769d607fcff8f4da3af849ab6c1d78, type: 3}
   resultsVerticalLayout: {fileID: 143467236}
 --- !u!1001 &2127475914

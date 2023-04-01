@@ -11,7 +11,7 @@ namespace com.digitalmind.towertest
     {
         public TextMeshProUGUI displayText;
 
-        public void OnScoreChange(float newScore)
+        public void OnScoreChange(int newScore)
         {
             displayText.text = newScore.ToString();
         }
