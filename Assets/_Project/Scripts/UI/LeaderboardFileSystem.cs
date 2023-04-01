@@ -10,7 +10,7 @@ namespace com.digitalmind.towertest
     {
         private const string FileName = "leaderboard.txt";
 
-        public List<LeaderboardResultModel> ReadResultsFromFile()
+        public List<LeaderboardResultModel> ReadResults()
         {
             var resultsJson = ReadFromFIle(FileName);
 
@@ -18,9 +18,9 @@ namespace com.digitalmind.towertest
             return results;
         }
 
-        public void TryAddingResultToFile(string name, int score)
+        public void TryAddingResult(string name, int score)
         {
-            var currentResults = ReadResultsFromFile() ;
+            var currentResults = ReadResults() ;
             currentResults.Add(
                 new LeaderboardResultModel{
                     rank = currentResults.Count,

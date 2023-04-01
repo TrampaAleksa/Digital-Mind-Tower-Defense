@@ -12,10 +12,14 @@ namespace com.digitalmind.towertest
         public GameObject resultsVerticalLayout;
         
         private readonly List<LeaderboardResult> _resultContainers = new List<LeaderboardResult>();
+        private LeaderboardFileSystem _leaderboardFileSystem;
 
 
         public void Start()
         {
+            _leaderboardFileSystem = new LeaderboardFileSystem();
+            _leaderboardFileSystem.WriteInitialLeaderboard();
+            
             LoadLeaderboard();
         }
 
@@ -28,10 +32,7 @@ namespace com.digitalmind.towertest
 
         private List<LeaderboardResultModel> ReadLeaderboardResults()
         {
-            var fileSystem = new LeaderboardFileSystem();
-            fileSystem.WriteInitialLeaderboard();
-            
-            var resultsFromJson = fileSystem.ReadResultsFromFile();
+            var resultsFromJson = _leaderboardFileSystem.ReadResults();
             return resultsFromJson;
         }
         
