@@ -45,5 +45,13 @@ namespace com.digitalmind.towertest
             _enemyBehaviour = gameObject.GetComponent<EnemyBehaviour>();
             
         }
+
+
+        public Action<Enemy> onDestroyCallback;
+
+        private void OnDestroy()
+        {
+            onDestroyCallback(this);
+        }
     }
 }

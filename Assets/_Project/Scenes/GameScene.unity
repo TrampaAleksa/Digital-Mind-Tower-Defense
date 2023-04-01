@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &71884121
 Transform:
   m_ObjectHideFlags: 0
@@ -1545,6 +1545,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426686170}
   m_CullTransparentMesh: 1
+--- !u!4 &437552300 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6016103620548556503, guid: 5ff68640b9726ae40a5ed395dae9827d, type: 3}
+  m_PrefabInstance: {fileID: 924636007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &440387536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  rotationObj: {fileID: 437552300}
+  range: 1.5
+  rotSpeed: 5
 --- !u!54 &894958322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7411,7 +7419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738711, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.116514
+      value: 36.2
       objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738711, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7419,7 +7427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738711, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.54999995
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7953428380926738711, guid: cb9cd79cbc462174396b42b794a6c957, type: 3}
       propertyPath: m_LocalRotation.w
