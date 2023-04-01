@@ -11,15 +11,13 @@ namespace com.digitalmind.towertest
         public LeaderboardResult singleResultPrefab;
         public GameObject resultsVerticalLayout;
         
-        public List<LeaderboardResultModel> testResults;
-
         private readonly List<LeaderboardResult> _resultContainers = new List<LeaderboardResult>();
+
 
         public void Start()
         {
             LoadLeaderboard();
         }
-
 
         private  void LoadLeaderboard()
         {
@@ -30,9 +28,10 @@ namespace com.digitalmind.towertest
 
         private List<LeaderboardResultModel> ReadLeaderboardResults()
         {
-            var jsonResults = JsonConvert.SerializeObject(testResults);
-            var resultsFromJson = JsonConvert.DeserializeObject<List<LeaderboardResultModel>>(jsonResults);
-
+            var fileSystem = new LeaderboardFileSystem();
+            fileSystem.WriteInitialLeaderboard();
+            
+            var resultsFromJson = fileSystem.ReadResultsFromFile();
             return resultsFromJson;
         }
         
