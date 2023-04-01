@@ -12,14 +12,35 @@ namespace com.digitalmind.towertest
         
         public List<LeaderboardResultModel> testResults;
 
-        private List<LeaderboardResult> _resultContainers;
+        private readonly List<LeaderboardResult> _resultContainers = new List<LeaderboardResult>();
 
         public void Start()
         {
-            foreach (var testResult in testResults)
+            LoadLeaderboard();
+        }
+
+
+        private  void LoadLeaderboard()
+        {
+            ClearCurrentLeaderboardResults();
+            InflateLeaderboardResults(testResults);
+        }
+        
+        private void ClearCurrentLeaderboardResults()
+        {
+            foreach (var container in _resultContainers)
+            {
+                Destroy(container.gameObject);
+            }
+            _resultContainers.Clear();
+        }
+        private void InflateLeaderboardResults(List<LeaderboardResultModel> resultModels)
+        {
+            foreach (var result in resultModels)
             {
                 var leaderboardResult = Instantiate(singleResultPrefab, resultsVerticalLayout.transform);
-                leaderboardResult.SetResult(testResult);
+                _resultContainers.Add(leaderboardResult);
+                leaderboardResult.SetResult(result);
             }
         }
     }
