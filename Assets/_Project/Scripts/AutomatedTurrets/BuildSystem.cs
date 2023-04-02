@@ -12,14 +12,14 @@ namespace com.digitalmind.towertest
         private BuildLocationsGenerator _locationsGenerator;
         private BuildLocationsDisplay _locationsDisplay;
         private AutoTurretBuilder _autoTurretBuilder;
-        private AutoTurretBuildClickDetection _buildLocationClickDetection;
+        private AutoTurretBuildClickDetection _clickDetection;
 
         private void Awake()
         {
             _locationsGenerator = GetComponent<BuildLocationsGenerator>();
             _locationsDisplay = GetComponent<BuildLocationsDisplay>();
             _autoTurretBuilder = GetComponent<AutoTurretBuilder>();
-            _buildLocationClickDetection = GetComponent<AutoTurretBuildClickDetection>();
+            _clickDetection = GetComponent<AutoTurretBuildClickDetection>();
         }
         private void Start()
         {
@@ -34,10 +34,10 @@ namespace com.digitalmind.towertest
 
         private void Update()
         {
-            if (!_buildLocationClickDetection.ClickedOnBuildLocation()) 
+            if (!_clickDetection.ClickedOnBuildLocation()) 
                 return;
             
-            var buildLocationHit = _buildLocationClickDetection.BuildLocationHit;
+            var buildLocationHit = _clickDetection.BuildLocationHit;
             _autoTurretBuilder.BuildOnLocation(buildLocationHit);
         }
 
