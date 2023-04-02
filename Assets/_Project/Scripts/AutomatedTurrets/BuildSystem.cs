@@ -5,19 +5,21 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    public class BuildLocations : MonoBehaviour
+    public class BuildSystem : MonoBehaviour
     {
         public List<BuildLocation> locations;
 
         private BuildLocationsGenerator _locationsGenerator;
         private BuildLocationsDisplay _locationsDisplay;
         private AutoTurretBuilder _autoTurretBuilder;
+        private AutoTurretBuildClickDetection _buildLocationClickDetection;
 
         private void Awake()
         {
             _locationsGenerator = GetComponent<BuildLocationsGenerator>();
             _locationsDisplay = GetComponent<BuildLocationsDisplay>();
             _autoTurretBuilder = GetComponent<AutoTurretBuilder>();
+            _buildLocationClickDetection = GetComponent<AutoTurretBuildClickDetection>();
         }
         private void Start()
         {
@@ -25,16 +27,20 @@ namespace com.digitalmind.towertest
             _locationsDisplay.HideBuildLocations();
         }
 
-        private void Update()
-        {
-            _autoTurretBuilder.TryHandlingBuildProcess();
-        }
-
         public void OnBuildButtonClicked()
         {
             _autoTurretBuilder.TryStartBuildProcess();
         }
-        
+
+        private void Update()
+        {
+            if (!_buildLocationClickDetection.ClickedOnBuildLocation()) 
+                return;
+            
+            var buildLocationHit = _buildLocationClickDetection.BuildLocationHit;
+            _autoTurretBuilder.BuildOnLocation(buildLocationHit);
+        }
+
         public void ShowBuildLocations()
         {
             _locationsDisplay.ShowBuildLocations();
