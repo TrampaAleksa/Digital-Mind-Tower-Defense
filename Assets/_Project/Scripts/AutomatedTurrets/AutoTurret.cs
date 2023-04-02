@@ -10,8 +10,6 @@ namespace com.digitalmind.towertest
     //TODO - There is a small chance of the on destroyed callback throwing an error, use instanceId of enemy instead of enemy
     public class AutoTurret : MonoBehaviour
     {
-        public Transform rotationObj;
-        
         private AutoTurretGun _turretGun;
         private AutoTurretRotation _turretRotation;
         
@@ -98,6 +96,7 @@ namespace com.digitalmind.towertest
         public Vector3 DirectionToLockedOnEnemy => _turretRotation.DirectionToTarget;
         public bool IsLookingAtEnemy => _turretRotation.IsLookingAtTarget;
         public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
+        public Transform RotationObject => _turretRotation.rotationObj;
 
     }
 }

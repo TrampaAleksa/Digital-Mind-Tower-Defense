@@ -36,6 +36,6 @@ namespace com.digitalmind.towertest
                 Debug.Log("Looking: " + _turret.IsLookingAtEnemy);
         }
 
-        private Transform RotationObj => _turret.rotationObj;
+        private Transform RotationObj => _turret.RotationObject;
     }
 }

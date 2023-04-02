@@ -64,9 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae6fcdeacd5b444aa77a92700ad6765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationObj: {fileID: 2755334681412683218}
   range: 35
-  lockOnAngle: 3.2
 --- !u!54 &2755334681113881820
 Rigidbody:
   m_ObjectHideFlags: 0
