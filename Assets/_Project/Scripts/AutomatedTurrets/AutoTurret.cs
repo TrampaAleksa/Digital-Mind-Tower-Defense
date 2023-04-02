@@ -10,9 +10,8 @@ namespace com.digitalmind.towertest
     //TODO - There is a small chance of the on destroyed callback throwing an error, use instanceId of enemy instead of enemy
     public class AutoTurret : MonoBehaviour
     {
-        public GameObject projectile;
         public Transform rotationObj;
-        public Transform gunTip;
+        private AutoTurretGun _turretGun;
 
         public float range = 1.8f;
         public float rotSpeed = 1f;
@@ -23,15 +22,11 @@ namespace com.digitalmind.towertest
 
         private Quaternion _initialRotation;
 
-        private TimedAction _timedAction;
-        private bool isShotReady;
-        private bool isReloading;
-
         private void Start()
         {
             _initialRotation = TurretRotation;
             GetComponent<CapsuleCollider>().radius = range;
-            _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
+            _turretGun = GetComponent<AutoTurretGun>();
         }
 
         private void Update()
@@ -46,53 +41,18 @@ namespace com.digitalmind.towertest
         {
             TurretRotation =
                 Quaternion.Slerp(TurretRotation, _initialRotation, Time.deltaTime * rotSpeed);
+            _turretGun.TryReloading();
         }
 
         private void HandleLockOnEnemy()
         {
             TurretRotation =
                 Quaternion.Slerp(TurretRotation, RotationToLockedOnEnemy, Time.deltaTime * rotSpeed);
-
-            TryReloading();
-            TryShooting();
-        }
-
-
-
-        private void TryReloading()
-        {
-            if (!isShotReady && !isReloading)
-                StartReload();
-        }
-
-        private void StartReload()
-        {
-            isReloading = true;
-            _timedAction.StartTimedAction(FinishReload, 0.5f);
-        }
-
-        private void FinishReload()
-        {
-            isShotReady = true;
-            isReloading = false;
-        }
-
-        private void TryShooting()
-        {
-            if (!isShotReady)
-                return;
             
-            if (IsLookingAtEnemy)
-                Shoot();
+            _turretGun.TryReloading();
+            _turretGun.TryShooting(this);
         }
 
-        private void Shoot()
-        {
-            isShotReady = false;
-            Instantiate(projectile, gunTip.position, gunTip.rotation);
-        }
-        
-        
 
         private void OnTriggerEnter(Collider other)
         {

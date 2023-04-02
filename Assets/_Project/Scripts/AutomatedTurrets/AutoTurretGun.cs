@@ -7,7 +7,6 @@ namespace com.digitalmind.towertest
         public GameObject projectile;
         public Transform gunTip;
         
-        private AutoTurret _turret;
         private TimedAction _timedAction;
         
         private bool _isShotReady;
@@ -16,23 +15,16 @@ namespace com.digitalmind.towertest
 
         private void Awake()
         {
-            _turret = GetComponent<AutoTurret>();
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
         }
 
-        private void Update()
-        {
-            TryReloading();
-            TryShooting();
-        }
-
-        private void TryReloading()
+        public void TryReloading()
         {
             if (!_isShotReady && !_isReloading)
                 StartReload();
         }
 
-        private void StartReload()
+        public void StartReload()
         {
             _isReloading = true;
             _timedAction.StartTimedAction(FinishReload, 0.5f);
@@ -44,12 +36,12 @@ namespace com.digitalmind.towertest
             _isReloading = false;
         }
 
-        private void TryShooting()
+        public void TryShooting(AutoTurret turret)
         {
             if (!_isShotReady)
                 return;
             
-            if (_turret.IsLookingAtEnemy)
+            if (turret.IsLookingAtEnemy)
                 Shoot();
         }
 
