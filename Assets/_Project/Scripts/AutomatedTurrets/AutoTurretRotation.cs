@@ -8,10 +8,11 @@ namespace com.digitalmind.towertest
         
         public float rotSpeed = 6f;
         public float lockOnAngle = 2.5f;
+        public float targetOffset = 1f;
 
         private Transform _initialTarget;
         private Transform _target;
-
+        
         private void Start()
         {
             _initialTarget = new GameObject("InitialTarget").transform;
@@ -40,7 +41,7 @@ namespace com.digitalmind.towertest
 
         
         public Quaternion TurretRotation { get => rotationObj.rotation; private set => rotationObj.rotation = value; }
-        public Vector3 DirectionToTarget => _target.position - rotationObj.position;
+        public Vector3 DirectionToTarget => _target.position + (_target.forward * targetOffset) - rotationObj.position;
         public Quaternion RotationToTarget => Quaternion.LookRotation(DirectionToTarget);
         public bool IsLookingAtTarget => Vector3.Angle(rotationObj.forward, DirectionToTarget) < lockOnAngle;
         
