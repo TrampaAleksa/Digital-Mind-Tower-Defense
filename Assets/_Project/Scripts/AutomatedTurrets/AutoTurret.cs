@@ -16,7 +16,6 @@ namespace com.digitalmind.towertest
         private AutoTurretRotation _turretRotation;
         
         public float range = 1.8f;
-        public float lockOnAngle = 2.5f; 
 
         private List<Enemy> _enemiesInRange = new List<Enemy>();
 
@@ -96,8 +95,8 @@ namespace com.digitalmind.towertest
 
 
         public Enemy LockedOnEnemy { get; private set; }
-        public Vector3 DirectionToLockedOnEnemy => LockedOnEnemy.transform.position - rotationObj.position;
-        public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
+        public Vector3 DirectionToLockedOnEnemy => _turretRotation.DirectionToTarget;
+        public bool IsLookingAtEnemy => _turretRotation.IsLookingAtTarget;
         public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
 
     }
