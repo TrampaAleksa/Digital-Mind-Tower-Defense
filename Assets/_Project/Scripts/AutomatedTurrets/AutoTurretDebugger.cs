@@ -21,21 +21,21 @@ namespace com.digitalmind.towertest
 
         private void DebugTurret()
         {
-            Debug.DrawRay(rotationObj.position, rotationObj.forward*50f, Color.red);
+            Debug.DrawRay(RotationObj.position, RotationObj.forward*50f, Color.red);
 
             if (!_turret.HasEnemiesInRange) 
                 return;
             
-            Debug.DrawRay(rotationObj.position, _turret.DirectionToLockedOnEnemy);
+            Debug.DrawRay(RotationObj.position, _turret.DirectionToLockedOnEnemy);
                 
             if (debugAngle)
-                Debug.Log(Vector3.Angle(rotationObj.forward,
+                Debug.Log(Vector3.Angle(RotationObj.forward,
                     _turret.DirectionToLockedOnEnemy));
                 
             if (debugIsLooking)
                 Debug.Log("Looking: " + _turret.IsLookingAtEnemy);
         }
 
-        private Transform rotationObj => _turret.rotationObj;
+        private Transform RotationObj => _turret.rotationObj;
     }
 }
