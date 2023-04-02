@@ -17,11 +17,12 @@ namespace com.digitalmind.towertest
         {
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
             _buildLocations = GetComponent<BuildLocations>();
+            _camera = Camera.main;
         }
 
         public void TryStartBuildProcess()
         {
-            if (!_isOnCooldown) return;
+            if (_isOnCooldown) return;
 
             _buildLocations.ShowBuildLocations();
             _isOnCooldown = true;
