@@ -35,7 +35,7 @@ namespace com.digitalmind.towertest
                 return false;
             
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            return Physics.Raycast(ray, out _hit, 100f, LayerMask.GetMask("Pickup"));
+            return Physics.Raycast(ray, out _hit, 100f, LayerMask.GetMask("Pickup")); //TODO - Extract util method for raycasting to mouse posiiton
         }
 
         
