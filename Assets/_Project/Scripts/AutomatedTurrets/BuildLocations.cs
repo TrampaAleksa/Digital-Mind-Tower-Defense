@@ -11,6 +11,8 @@ namespace com.digitalmind.towertest
         public AutoTurret turretPrefab;
 
         private BuildLocationsGenerator _locationsGenerator;
+        private BuildLocationsDisplay _locationsDisplay;
+        private AutoTurretBuilder _autoTurretBuilder;
 
         private Camera _camera;
         private RaycastHit _hit;
@@ -22,6 +24,8 @@ namespace com.digitalmind.towertest
         private void Awake()
         {
             _locationsGenerator = GetComponent<BuildLocationsGenerator>();
+            _locationsDisplay = GetComponent<BuildLocationsDisplay>();
+            _autoTurretBuilder = GetComponent<AutoTurretBuilder>();
         }
 
         private void Start()
@@ -39,6 +43,7 @@ namespace com.digitalmind.towertest
             {
                 OnBuildButtonClicked();
             }
+            
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -61,17 +66,14 @@ namespace com.digitalmind.towertest
                 _isOnCooldown = true;
             }
         }
-
+        
         public void ShowBuildLocations()
         {
-            foreach (var buildLocation in locations)
-                buildLocation.ShowLocation();
+            _locationsDisplay.ShowBuildLocations();
         }
-
         public void HideBuildLocations()
         {
-            foreach (var buildLocation in locations)
-                buildLocation.HideLocation();
+            _locationsDisplay.HideBuildLocations();
         }
 
         private void FinishCooldown()
