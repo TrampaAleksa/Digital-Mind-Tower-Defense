@@ -47,11 +47,11 @@ namespace com.digitalmind.towertest
         }
 
 
-        public Action<Enemy> onDestroyCallback;
+        public Action<Enemy> onDestroyCallback = null;
 
         private void OnDestroy()
         {
-            onDestroyCallback(this);
+            onDestroyCallback?.Invoke(this);
         }
     }
 }

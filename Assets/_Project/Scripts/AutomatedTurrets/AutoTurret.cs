@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace com.digitalmind.towertest
 {
     
-    //TODO - There is a small chance of the on destroyed callback throwing an error, research if its because of the two non spawned enemies, and make this code more secure just in case
+    //TODO - There is a small chance of the on destroyed callback throwing an error, use instanceId of enemy instead of enemy
     public class AutoTurret : MonoBehaviour
     {
         public GameObject projectile;
@@ -37,25 +37,32 @@ namespace com.digitalmind.towertest
         private void Update()
         {
             if (_enemiesInRange.Count != 0)
-            {
-                Quaternion lookOnLook =
-                    Quaternion.LookRotation(_lockedOnEnemy.transform.position - rotationObj.position);
-
-                rotationObj.rotation =
-                    Quaternion.Slerp(rotationObj.rotation, lookOnLook, Time.deltaTime * rotSpeed);
-
-                TryReloading();
-                TryShooting();
-
-            }
-
+                HandleLockOnEnemy();
             if (_enemiesInRange.Count == 0)
-            {
-                rotationObj.rotation =
-                    Quaternion.Slerp(rotationObj.rotation, _initialRotation, Time.deltaTime * rotSpeed);
-            }
+                HandleDefaultState();
         }
 
+        private void HandleDefaultState()
+        {
+            rotationObj.rotation =
+                Quaternion.Slerp(rotationObj.rotation, _initialRotation, Time.deltaTime * rotSpeed);
+        }
+
+        private void HandleLockOnEnemy()
+        {
+            Quaternion lookOnLook =
+                Quaternion.LookRotation(_lockedOnEnemy.transform.position - rotationObj.position);
+
+            rotationObj.rotation =
+                Quaternion.Slerp(rotationObj.rotation, lookOnLook, Time.deltaTime * rotSpeed);
+
+            TryReloading();
+            TryShooting();
+        }
+        
+        public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(_lockedOnEnemy.transform.position - rotationObj.position);
+        public Vector3 DirectionToLockedOnEnemy => _lockedOnEnemy.transform.position - rotationObj.position;
+        public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, _lockedOnEnemy.transform.position - rotationObj.position) < lockOnAngle;
 
         private void TryReloading()
         {
@@ -101,6 +108,11 @@ namespace com.digitalmind.towertest
                 return;
 
             var enemy = other.GetComponent<EnemyHitBox>().Enemy;
+            HandleEnemyEnteredRange(enemy);
+        }
+
+        private void HandleEnemyEnteredRange(Enemy enemy)
+        {
             enemy.onDestroyCallback += StopTrackingIfDestroyed;
             _enemiesInRange.Add(enemy);
 
@@ -114,6 +126,11 @@ namespace com.digitalmind.towertest
                 return;
 
             var enemy = other.GetComponent<EnemyHitBox>().Enemy;
+            HandleEnemyExitedRange(enemy);
+        }
+
+        private void HandleEnemyExitedRange(Enemy enemy)
+        {
             _enemiesInRange.Remove(enemy);
 
             if (_enemiesInRange.Count != 0)
