@@ -19,14 +19,13 @@ namespace com.digitalmind.towertest
         public float lockOnAngle = 2.5f; 
 
         private List<Enemy> _enemiesInRange = new List<Enemy>();
-        private Enemy _lockedOnEnemy;
+        public Enemy LockedOnEnemy { get; private set; }
 
         private Quaternion _initialRotation;
 
         private TimedAction _timedAction;
         private bool isShotReady;
         private bool isReloading;
-        public Quaternion TurretRotation { get => rotationObj.rotation; private set => rotationObj.rotation = value; }
 
         private void Start()
         {
@@ -58,10 +57,7 @@ namespace com.digitalmind.towertest
             TryShooting();
         }
 
-        public Vector3 DirectionToLockedOnEnemy => _lockedOnEnemy.transform.position - rotationObj.position;
-        public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(DirectionToLockedOnEnemy);
-        public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
-        public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
+
 
         private void TryReloading()
         {
@@ -113,7 +109,7 @@ namespace com.digitalmind.towertest
             _enemiesInRange.Add(enemy);
 
             if (_enemiesInRange.Count == 1)
-                _lockedOnEnemy = enemy;
+                LockedOnEnemy = enemy;
         }
 
         private void OnTriggerExit(Collider other)
@@ -130,7 +126,7 @@ namespace com.digitalmind.towertest
             _enemiesInRange.Remove(enemy);
 
             if (HasEnemiesInRange)
-                _lockedOnEnemy = _enemiesInRange[0]; // grad the first available enemy in range
+                LockedOnEnemy = _enemiesInRange[0]; // grad the first available enemy in range
         }
 
         private void StopTrackingIfDestroyed(Enemy enemy)
@@ -140,30 +136,15 @@ namespace com.digitalmind.towertest
 
             _enemiesInRange.Remove(enemy);
             if (HasEnemiesInRange)
-                _lockedOnEnemy = _enemiesInRange[0]; // grad the first available enemy in range
+                LockedOnEnemy = _enemiesInRange[0]; // grad the first available enemy in range
         }
 
 
-        
-        private void DebugTurret()
-        {
-            
-            var debugAngle = false;
-            var debugLooking = false;
-            
-            Debug.DrawRay(rotationObj.position, rotationObj.forward*50f, Color.red);
-            
-            if (HasEnemiesInRange)
-            {
-                Debug.DrawRay(rotationObj.position, _lockedOnEnemy.transform.position);
-                
-                if (debugAngle)
-                    Debug.Log(Vector3.Angle(rotationObj.forward,
-                        DirectionToLockedOnEnemy));
-                
-                if (debugLooking)
-                    Debug.Log("Looking: " + IsLookingAtEnemy);
-            }
-        }
+        public Quaternion TurretRotation { get => rotationObj.rotation; private set => rotationObj.rotation = value; }
+        public Vector3 DirectionToLockedOnEnemy => LockedOnEnemy.transform.position - rotationObj.position;
+        public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(DirectionToLockedOnEnemy);
+        public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
+        public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
+
     }
 }
