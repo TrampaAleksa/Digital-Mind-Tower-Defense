@@ -3214,9 +3214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae6fcdeacd5b444aa77a92700ad6765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 3515087465744248126, guid: e858bb57ab62619438c049ae45a9c0af, type: 3}
   rotationObj: {fileID: 648434684}
-  range: 1.5
+  gunTip: {fileID: 463457407}
+  range: 35
   rotSpeed: 5
   lockOnAngle: 2.5
 --- !u!54 &894958322

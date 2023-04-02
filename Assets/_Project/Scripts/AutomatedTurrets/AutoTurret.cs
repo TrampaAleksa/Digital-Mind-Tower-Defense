@@ -10,6 +10,7 @@ namespace com.digitalmind.towertest
     {
         public GameObject projectile;
         public Transform rotationObj;
+        public Transform gunTip;
 
         public float range = 1.8f;
         public float rotSpeed = 1f;
@@ -87,6 +88,7 @@ namespace com.digitalmind.towertest
         private void Shoot()
         {
             isShotReady = false;
+            Instantiate(projectile, gunTip.position, gunTip.rotation);
         }
         
         
