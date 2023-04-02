@@ -86,9 +86,7 @@ namespace com.digitalmind.towertest
             if (!isShotReady)
                 return;
             
-            var lookingAtEnemy = Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
-
-            if (lookingAtEnemy)
+            if (IsLookingAtEnemy)
                 Shoot();
         }
 
@@ -164,12 +162,7 @@ namespace com.digitalmind.towertest
                         DirectionToLockedOnEnemy));
                 
                 if (debugLooking)
-                {
-                    var lookingAtEnemy = Vector3.Angle(rotationObj.forward,
-                        DirectionToLockedOnEnemy) < lockOnAngle;
-                    
-                    Debug.Log("Looking: " + lookingAtEnemy);
-                }
+                    Debug.Log("Looking: " + IsLookingAtEnemy);
             }
         }
     }
