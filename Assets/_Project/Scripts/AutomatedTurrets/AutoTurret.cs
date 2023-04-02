@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 namespace com.digitalmind.towertest
 {
+    
+    //TODO - There is a small chance of the on destroyed callback throwing an error, research if its because of the two non spawned enemies, and make this code more secure just in case
     public class AutoTurret : MonoBehaviour
     {
         public GameObject projectile;

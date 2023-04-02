@@ -23,9 +23,6 @@ namespace com.digitalmind.towertest
             CurrentHealth -= amount;
             var mGameObject = gameObject;
             
-            Debug.Log($"{mGameObject.name} took : {amount} damage", mGameObject);
-            Debug.Log($"{mGameObject.name} health : {CurrentHealth}", mGameObject);
-           
             onHealthChanged.Invoke(this, CurrentHealth);
 
             if (CurrentHealth <= 0)
