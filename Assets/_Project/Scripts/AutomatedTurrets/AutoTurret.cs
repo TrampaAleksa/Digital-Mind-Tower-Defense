@@ -20,9 +20,15 @@ namespace com.digitalmind.towertest
 
         private Quaternion _initialRotation;
 
+        private TimedAction _timedAction;
+        private bool isShotReady;
+        private bool isReloading;
+
         private void Start()
         {
             _initialRotation = rotationObj.rotation;
+            GetComponent<CapsuleCollider>().radius = range;
+            _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
         }
 
         private void Update()
@@ -35,15 +41,8 @@ namespace com.digitalmind.towertest
                 rotationObj.rotation =
                     Quaternion.Slerp(rotationObj.rotation, lookOnLook, Time.deltaTime * rotSpeed);
 
-                float angle = 2.5f;
-                
-                var lookingAtEnemy = Vector3.Angle(rotationObj.forward,
-                    _lockedOnEnemy.transform.position - rotationObj.position) < angle;
-
-                if (lookingAtEnemy)
-                {
-                    Debug.Log("Locked on and ready to shoot!");
-                }
+                TryReloading();
+                TryShooting();
 
             }
 
@@ -53,6 +52,44 @@ namespace com.digitalmind.towertest
                     Quaternion.Slerp(rotationObj.rotation, _initialRotation, Time.deltaTime * rotSpeed);
             }
         }
+
+
+        private void TryReloading()
+        {
+            if (!isShotReady && !isReloading)
+                StartReload();
+        }
+
+        private void StartReload()
+        {
+            isReloading = true;
+            _timedAction.StartTimedAction(FinishReload, 0.5f);
+        }
+
+        private void FinishReload()
+        {
+            isShotReady = true;
+            isReloading = false;
+        }
+
+        private void TryShooting()
+        {
+            if (!isShotReady)
+                return;
+            
+            var lookingAtEnemy = Vector3.Angle(rotationObj.forward,
+                _lockedOnEnemy.transform.position - rotationObj.position) < lockOnAngle;
+
+            if (lookingAtEnemy)
+                Shoot();
+        }
+
+        private void Shoot()
+        {
+            isShotReady = false;
+        }
+        
+        
 
         private void OnTriggerEnter(Collider other)
         {
