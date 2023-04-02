@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  speed: 12
+  speed: 8
   damage: 3
 --- !u!114 &8896436720628462070
 MonoBehaviour:

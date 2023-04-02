@@ -26,10 +26,11 @@ namespace com.digitalmind.towertest
         private TimedAction _timedAction;
         private bool isShotReady;
         private bool isReloading;
+        public Quaternion TurretRotation { get => rotationObj.rotation; private set => rotationObj.rotation = value; }
 
         private void Start()
         {
-            _initialRotation = rotationObj.rotation;
+            _initialRotation = TurretRotation;
             GetComponent<CapsuleCollider>().radius = range;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
         }
@@ -44,25 +45,22 @@ namespace com.digitalmind.towertest
 
         private void HandleDefaultState()
         {
-            rotationObj.rotation =
-                Quaternion.Slerp(rotationObj.rotation, _initialRotation, Time.deltaTime * rotSpeed);
+            TurretRotation =
+                Quaternion.Slerp(TurretRotation, _initialRotation, Time.deltaTime * rotSpeed);
         }
 
         private void HandleLockOnEnemy()
         {
-            Quaternion lookOnLook =
-                Quaternion.LookRotation(_lockedOnEnemy.transform.position - rotationObj.position);
-
-            rotationObj.rotation =
-                Quaternion.Slerp(rotationObj.rotation, lookOnLook, Time.deltaTime * rotSpeed);
+            TurretRotation =
+                Quaternion.Slerp(TurretRotation, RotationToLockedOnEnemy, Time.deltaTime * rotSpeed);
 
             TryReloading();
             TryShooting();
         }
-        
-        public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(_lockedOnEnemy.transform.position - rotationObj.position);
+
         public Vector3 DirectionToLockedOnEnemy => _lockedOnEnemy.transform.position - rotationObj.position;
-        public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, _lockedOnEnemy.transform.position - rotationObj.position) < lockOnAngle;
+        public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(DirectionToLockedOnEnemy);
+        public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
         public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
 
         private void TryReloading()
@@ -88,8 +86,7 @@ namespace com.digitalmind.towertest
             if (!isShotReady)
                 return;
             
-            var lookingAtEnemy = Vector3.Angle(rotationObj.forward,
-                _lockedOnEnemy.transform.position - rotationObj.position) < lockOnAngle;
+            var lookingAtEnemy = Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
 
             if (lookingAtEnemy)
                 Shoot();
@@ -164,12 +161,12 @@ namespace com.digitalmind.towertest
                 
                 if (debugAngle)
                     Debug.Log(Vector3.Angle(rotationObj.forward,
-                        _lockedOnEnemy.transform.position - rotationObj.position));
+                        DirectionToLockedOnEnemy));
                 
                 if (debugLooking)
                 {
                     var lookingAtEnemy = Vector3.Angle(rotationObj.forward,
-                        _lockedOnEnemy.transform.position - rotationObj.position) < lockOnAngle;
+                        DirectionToLockedOnEnemy) < lockOnAngle;
                     
                     Debug.Log("Looking: " + lookingAtEnemy);
                 }

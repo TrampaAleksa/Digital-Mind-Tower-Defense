@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  speed: 18
+  speed: 8
   stoppingDistance: 40
   rateOfFire: 3
   damagePerShot: 2
