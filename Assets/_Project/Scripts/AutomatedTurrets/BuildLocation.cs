@@ -7,11 +7,23 @@ namespace com.digitalmind.towertest
         public bool isFree = true;
         [HideInInspector]
         public AutoTurret turret;
-        public Transform turretParent;
+
+        public void ShowLocation()
+        {
+            if (isFree)
+                gameObject.SetActive(true);
+        }
+
+        public void HideLocation()
+        {
+            gameObject.SetActive(false);
+        }
 
         public void BuildTurret(AutoTurret turretToBuild)
         {
-            turret =  Instantiate(turretToBuild, turretParent);
+            if (!isFree) return;
+           
+            turret =  Instantiate(turretToBuild, transform.position, turretToBuild.transform.rotation);
             isFree = false;
         }
     }

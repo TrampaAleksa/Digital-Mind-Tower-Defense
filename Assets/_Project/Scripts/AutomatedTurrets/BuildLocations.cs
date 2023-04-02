@@ -18,6 +18,18 @@ namespace com.digitalmind.towertest
             _camera = Camera.main;
         }
 
+        public void ShowBuildLocations()
+        {
+            foreach (var buildLocation in locations)
+                buildLocation.ShowLocation();
+        }
+
+        public void HideBuildLocations()
+        {
+            foreach (var buildLocation in locations)
+                buildLocation.HideLocation();
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -28,9 +40,9 @@ namespace com.digitalmind.towertest
                 if (clickedOnBuildLocation)
                 {
                     _hit.collider.GetComponent<BuildLocation>().BuildTurret(turretPrefab);
+                    HideBuildLocations();
                 }
             }
-            
         }
     }
 }
