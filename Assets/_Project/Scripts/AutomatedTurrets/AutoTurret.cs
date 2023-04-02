@@ -11,22 +11,20 @@ namespace com.digitalmind.towertest
     public class AutoTurret : MonoBehaviour
     {
         public Transform rotationObj;
+        
         private AutoTurretGun _turretGun;
-
+        private AutoTurretRotation _turretRotation;
+        
         public float range = 1.8f;
-        public float rotSpeed = 1f;
         public float lockOnAngle = 2.5f; 
 
         private List<Enemy> _enemiesInRange = new List<Enemy>();
-        public Enemy LockedOnEnemy { get; private set; }
-
-        private Quaternion _initialRotation;
 
         private void Start()
         {
-            _initialRotation = TurretRotation;
             GetComponent<CapsuleCollider>().radius = range;
             _turretGun = GetComponent<AutoTurretGun>();
+            _turretRotation = GetComponent<AutoTurretRotation>();
         }
 
         private void Update()
@@ -39,16 +37,13 @@ namespace com.digitalmind.towertest
 
         private void HandleDefaultState()
         {
-            TurretRotation =
-                Quaternion.Slerp(TurretRotation, _initialRotation, Time.deltaTime * rotSpeed);
+            _turretRotation.RotateToInitialPosition();
             _turretGun.TryReloading();
         }
 
         private void HandleLockOnEnemy()
         {
-            TurretRotation =
-                Quaternion.Slerp(TurretRotation, RotationToLockedOnEnemy, Time.deltaTime * rotSpeed);
-            
+            _turretRotation.RotateToTarget(LockedOnEnemy.transform);
             _turretGun.TryReloading();
             _turretGun.TryShooting(this);
         }
@@ -100,9 +95,8 @@ namespace com.digitalmind.towertest
         }
 
 
-        public Quaternion TurretRotation { get => rotationObj.rotation; private set => rotationObj.rotation = value; }
+        public Enemy LockedOnEnemy { get; private set; }
         public Vector3 DirectionToLockedOnEnemy => LockedOnEnemy.transform.position - rotationObj.position;
-        public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(DirectionToLockedOnEnemy);
         public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, DirectionToLockedOnEnemy) < lockOnAngle;
         public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
 

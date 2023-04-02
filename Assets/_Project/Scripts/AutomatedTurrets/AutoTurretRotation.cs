@@ -40,7 +40,6 @@ namespace com.digitalmind.towertest
 
         
         public Quaternion TurretRotation { get => rotationObj.rotation; private set => rotationObj.rotation = value; }
-
         public Vector3 DirectionToTarget => _target.position - rotationObj.position;
         public Quaternion RotationToTarget => Quaternion.LookRotation(DirectionToTarget);
         public bool IsLookingAtTarget => Vector3.Angle(rotationObj.forward, DirectionToTarget) < lockOnAngle;

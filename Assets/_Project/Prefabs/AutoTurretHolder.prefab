@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2755334681113881820}
   - component: {fileID: 3616069074338832507}
   - component: {fileID: 630201386044796600}
+  - component: {fileID: 6884311394181517010}
   m_Layer: 0
   m_Name: AutoTurretHolder
   m_TagString: Untagged
@@ -65,7 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationObj: {fileID: 2755334681412683218}
   range: 35
-  rotSpeed: 6
   lockOnAngle: 3.2
 --- !u!54 &2755334681113881820
 Rigidbody:
@@ -111,6 +111,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3515087465744248126, guid: e858bb57ab62619438c049ae45a9c0af, type: 3}
   gunTip: {fileID: 2755334681629252177}
+--- !u!114 &6884311394181517010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755334681113881792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6681374295d34eac8612e4e3b52996e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationObj: {fileID: 2755334681412683218}
+  rotSpeed: 6
+  lockOnAngle: 2.5
 --- !u!1001 &1759415007042791684
 PrefabInstance:
   m_ObjectHideFlags: 0
