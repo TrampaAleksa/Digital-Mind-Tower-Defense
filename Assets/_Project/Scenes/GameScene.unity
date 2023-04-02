@@ -257,6 +257,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14668588}
   m_CullTransparentMesh: 1
+--- !u!1 &22732798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22732800}
+  - component: {fileID: 22732799}
+  m_Layer: 0
+  m_Name: BuilLocationsHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &22732799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22732798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99539c5f25327243802e38e456fd9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locations: []
+  turretPrefab: {fileID: 2755334681113881823, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
+  buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
+  locationsOnLine: 8
+  buildLineLength: 100
+  buildCooldown: 5
+  buildList:
+  - {fileID: 2002552065}
+  - {fileID: 1975218462}
+--- !u!4 &22732800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22732798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.165935, y: -51.906982, z: 16.87461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2002552065}
+  - {fileID: 1975218462}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &26066700
 GameObject:
   m_ObjectHideFlags: 0
@@ -6512,7 +6567,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1975218462}
-  - component: {fileID: 1975218461}
   m_Layer: 0
   m_Name: LowerBuildLocations
   m_TagString: Untagged
@@ -6520,23 +6574,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1975218461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975218460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99539c5f25327243802e38e456fd9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locations: []
-  turretPrefab: {fileID: 2755334681113881823, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
-  buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
-  locationsOnLine: 8
-  buildLineLength: 100
 --- !u!4 &1975218462
 Transform:
   m_ObjectHideFlags: 0
@@ -6544,13 +6581,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975218460}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -37.8, y: 0.7, z: -24}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -24.634064, y: 52.606983, z: -40.87461}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 22732800}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1993982766
 GameObject:
@@ -6754,7 +6791,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2002552065}
-  - component: {fileID: 2002552061}
   m_Layer: 0
   m_Name: UpperBuildLocations
   m_TagString: Untagged
@@ -6762,23 +6798,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2002552061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002552060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99539c5f25327243802e38e456fd9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locations: []
-  turretPrefab: {fileID: 2755334681113881823, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
-  buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
-  locationsOnLine: 8
-  buildLineLength: 100
 --- !u!4 &2002552065
 Transform:
   m_ObjectHideFlags: 0
@@ -6786,13 +6805,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002552060}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -37.8, y: 0.7, z: 24}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -24.634064, y: 52.606983, z: 7.125389}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 22732800}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2024397253
 GameObject:

@@ -17,22 +17,64 @@ namespace com.digitalmind.towertest
         private Camera _camera;
         private RaycastHit _hit;
 
+        public float buildCooldown = 5f;
+        private TimedAction _timedAction;
+        private bool _isOnCooldown;
+
+        public List<Transform> buildList;
+        
         private void Start()
         {
             _camera = Camera.main;
-
+            _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
+            
             GenerateBuildLocationsInLine(locationsOnLine, buildLineLength);
+            HideBuildLocations();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                OnBuildButtonClicked();
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+                var clickedOnBuildLocation = Physics.Raycast(ray, out _hit, 100f, LayerMask.GetMask("BuildLocation"));
+
+                if (clickedOnBuildLocation)
+                {
+                    _hit.collider.GetComponent<BuildLocation>().BuildTurret(turretPrefab);
+                    HideBuildLocations();
+                    _timedAction.StartTimedAction(FinishCooldown, buildCooldown);
+                }
+            }
         }
 
         private void GenerateBuildLocationsInLine(int number,float lineLength)
         {
-            for (int i = 0; i < number; i++)
-            {
-                var percentageOnLine = i / (float) number; // range from 0-1 ; start to end
-                Vector3 nextBuildPosition = transform.position + transform.forward * (percentageOnLine * lineLength);
 
-                var location = Instantiate(buildLocationPrefab, nextBuildPosition, buildLocationPrefab.transform.rotation);
-                locations.Add(location);
+            foreach (var buildLine in buildList)
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    var percentageOnLine = i / (float) number; // range from 0-1 ; start to end
+                    Vector3 nextBuildPosition = buildLine.position + buildLine.forward * (percentageOnLine * lineLength);
+
+                    var location = Instantiate(buildLocationPrefab, nextBuildPosition, buildLocationPrefab.transform.rotation);
+                    locations.Add(location);
+                }
+            }
+           
+        }
+
+        public void OnBuildButtonClicked()
+        {
+            if (!_isOnCooldown)
+            {
+                ShowBuildLocations();
+                _isOnCooldown = true;
             }
         }
 
@@ -48,23 +90,9 @@ namespace com.digitalmind.towertest
                 buildLocation.HideLocation();
         }
 
-        private void Update()
+        private void FinishCooldown()
         {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                GenerateBuildLocationsInLine(locationsOnLine, buildLineLength);
-            }
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-                var clickedOnBuildLocation = Physics.Raycast(ray, out _hit, 100f, LayerMask.GetMask("BuildLocation"));
-
-                if (clickedOnBuildLocation)
-                {
-                    _hit.collider.GetComponent<BuildLocation>().BuildTurret(turretPrefab);
-                    HideBuildLocations();
-                }
-            }
+            _isOnCooldown = false;
         }
     }
 }
