@@ -65,8 +65,8 @@ MonoBehaviour:
   rotationObj: {fileID: 2755334681412683218}
   gunTip: {fileID: 2755334681629252177}
   range: 35
-  rotSpeed: 5
-  lockOnAngle: 2.5
+  rotSpeed: 6
+  lockOnAngle: 3.2
 --- !u!54 &2755334681113881820
 Rigidbody:
   m_ObjectHideFlags: 0

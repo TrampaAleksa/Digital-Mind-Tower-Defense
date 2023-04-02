@@ -36,9 +36,9 @@ namespace com.digitalmind.towertest
 
         private void Update()
         {
-            if (_enemiesInRange.Count != 0)
+            if (HasEnemiesInRange)
                 HandleLockOnEnemy();
-            if (_enemiesInRange.Count == 0)
+            else 
                 HandleDefaultState();
         }
 
@@ -63,6 +63,7 @@ namespace com.digitalmind.towertest
         public Quaternion RotationToLockedOnEnemy => Quaternion.LookRotation(_lockedOnEnemy.transform.position - rotationObj.position);
         public Vector3 DirectionToLockedOnEnemy => _lockedOnEnemy.transform.position - rotationObj.position;
         public bool IsLookingAtEnemy => Vector3.Angle(rotationObj.forward, _lockedOnEnemy.transform.position - rotationObj.position) < lockOnAngle;
+        public bool HasEnemiesInRange => _enemiesInRange.Count != 0;
 
         private void TryReloading()
         {
@@ -133,7 +134,7 @@ namespace com.digitalmind.towertest
         {
             _enemiesInRange.Remove(enemy);
 
-            if (_enemiesInRange.Count != 0)
+            if (HasEnemiesInRange)
                 _lockedOnEnemy = _enemiesInRange[0]; // grad the first available enemy in range
         }
 
@@ -143,7 +144,7 @@ namespace com.digitalmind.towertest
                 return;
 
             _enemiesInRange.Remove(enemy);
-            if (_enemiesInRange.Count != 0)
+            if (HasEnemiesInRange)
                 _lockedOnEnemy = _enemiesInRange[0]; // grad the first available enemy in range
         }
 
@@ -157,7 +158,7 @@ namespace com.digitalmind.towertest
             
             Debug.DrawRay(rotationObj.position, rotationObj.forward*50f, Color.red);
             
-            if (_enemiesInRange.Count != 0)
+            if (HasEnemiesInRange)
             {
                 Debug.DrawRay(rotationObj.position, _lockedOnEnemy.transform.position);
                 
