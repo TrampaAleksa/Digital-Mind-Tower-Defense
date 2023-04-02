@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
+    //TODO - Get rotation and lock on components directly instead of referencing turret
     public class AutoTurretDebugger : MonoBehaviour
     {
         private AutoTurret _turret;

@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 namespace com.digitalmind.towertest
 {
     
-    //TODO - There is a small chance of the on destroyed callback throwing an error, use instanceId of enemy instead of enemy
     public class AutoTurret : MonoBehaviour
     {
         private AutoTurretGun _turretGun;
