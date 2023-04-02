@@ -9,6 +9,10 @@ namespace com.digitalmind.towertest
     {
         public List<BuildLocation> locations;
         public AutoTurret turretPrefab;
+
+        public BuildLocation buildLocationPrefab;
+        public int locationsOnLine = 5;
+        public float buildLineLength = 20f;
         
         private Camera _camera;
         private RaycastHit _hit;
@@ -16,6 +20,20 @@ namespace com.digitalmind.towertest
         private void Start()
         {
             _camera = Camera.main;
+
+            GenerateBuildLocationsInLine(locationsOnLine, buildLineLength);
+        }
+
+        private void GenerateBuildLocationsInLine(int number,float lineLength)
+        {
+            for (int i = 0; i < number; i++)
+            {
+                var percentageOnLine = i / (float) number; // range from 0-1 ; start to end
+                Vector3 nextBuildPosition = transform.position + transform.forward * percentageOnLine * lineLength;
+
+                var location = Instantiate(buildLocationPrefab, nextBuildPosition, buildLocationPrefab.transform.rotation);
+                locations.Add(location);
+            }
         }
 
         public void ShowBuildLocations()
