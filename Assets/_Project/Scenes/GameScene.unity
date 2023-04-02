@@ -267,6 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22732800}
   - component: {fileID: 22732799}
+  - component: {fileID: 22732801}
   m_Layer: 0
   m_Name: BuilLocationsHolder
   m_TagString: Untagged
@@ -288,13 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locations: []
   turretPrefab: {fileID: 2755334681113881823, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
-  buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
-  locationsOnLine: 8
-  buildLineLength: 100
   buildCooldown: 5
-  buildList:
-  - {fileID: 2002552065}
-  - {fileID: 1975218462}
 --- !u!4 &22732800
 Transform:
   m_ObjectHideFlags: 0
@@ -312,6 +307,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &22732801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22732798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b198f339fee4aca924b0bef0775d543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildLines:
+  - {fileID: 2002552065}
+  - {fileID: 1975218462}
+  buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
+  locationsOnLine: 6
+  buildLineLength: 100
 --- !u!1 &26066700
 GameObject:
   m_ObjectHideFlags: 0
@@ -6581,14 +6594,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975218460}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -24.634064, y: 52.606983, z: -40.87461}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 55.365944, y: 52.606983, z: -40.87462}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 22732800}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1993982766
 GameObject:
   m_ObjectHideFlags: 0

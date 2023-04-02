@@ -10,10 +10,8 @@ namespace com.digitalmind.towertest
         public List<BuildLocation> locations;
         public AutoTurret turretPrefab;
 
-        public BuildLocation buildLocationPrefab;
-        public int locationsOnLine = 5;
-        public float buildLineLength = 20f;
-        
+        private BuildLocationsGenerator _locationsGenerator;
+
         private Camera _camera;
         private RaycastHit _hit;
 
@@ -21,14 +19,17 @@ namespace com.digitalmind.towertest
         private TimedAction _timedAction;
         private bool _isOnCooldown;
 
-        public List<Transform> buildList;
-        
+        private void Awake()
+        {
+            _locationsGenerator = GetComponent<BuildLocationsGenerator>();
+        }
+
         private void Start()
         {
             _camera = Camera.main;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
             
-            GenerateBuildLocationsInLine(locationsOnLine, buildLineLength);
+            locations = _locationsGenerator.GenerateBuildLocations();
             HideBuildLocations();
         }
 
@@ -50,23 +51,6 @@ namespace com.digitalmind.towertest
                     _timedAction.StartTimedAction(FinishCooldown, buildCooldown);
                 }
             }
-        }
-
-        private void GenerateBuildLocationsInLine(int number,float lineLength)
-        {
-
-            foreach (var buildLine in buildList)
-            {
-                for (int i = 0; i < number; i++)
-                {
-                    var percentageOnLine = i / (float) number; // range from 0-1 ; start to end
-                    Vector3 nextBuildPosition = buildLine.position + buildLine.forward * (percentageOnLine * lineLength);
-
-                    var location = Instantiate(buildLocationPrefab, nextBuildPosition, buildLocationPrefab.transform.rotation);
-                    locations.Add(location);
-                }
-            }
-           
         }
 
         public void OnBuildButtonClicked()

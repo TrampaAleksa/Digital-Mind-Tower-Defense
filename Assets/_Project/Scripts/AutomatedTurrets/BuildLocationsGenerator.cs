@@ -8,8 +8,8 @@ namespace com.digitalmind.towertest
         public List<Transform> buildLines;
         public BuildLocation buildLocationPrefab;
         
-        public int locationsOnLine = 5;
-        public float buildLineLength = 20f;
+        public int locationsOnLine = 8;
+        public float buildLineLength = 100f;
         
         public List<BuildLocation> GenerateBuildLocations()
         {
