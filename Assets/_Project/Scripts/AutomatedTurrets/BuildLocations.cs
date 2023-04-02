@@ -29,7 +29,7 @@ namespace com.digitalmind.towertest
             for (int i = 0; i < number; i++)
             {
                 var percentageOnLine = i / (float) number; // range from 0-1 ; start to end
-                Vector3 nextBuildPosition = transform.position + transform.forward * percentageOnLine * lineLength;
+                Vector3 nextBuildPosition = transform.position + transform.forward * (percentageOnLine * lineLength);
 
                 var location = Instantiate(buildLocationPrefab, nextBuildPosition, buildLocationPrefab.transform.rotation);
                 locations.Add(location);
@@ -50,6 +50,10 @@ namespace com.digitalmind.towertest
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                GenerateBuildLocationsInLine(locationsOnLine, buildLineLength);
+            }
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Ray ray = _camera.ScreenPointToRay(Input.mousePosition);

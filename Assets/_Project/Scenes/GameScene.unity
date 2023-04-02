@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &71884121
 Transform:
   m_ObjectHideFlags: 0
@@ -6503,6 +6503,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1975218460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975218462}
+  - component: {fileID: 1975218461}
+  m_Layer: 0
+  m_Name: LowerBuildLocations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1975218461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975218460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99539c5f25327243802e38e456fd9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locations: []
+  turretPrefab: {fileID: 2755334681113881823, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
+  buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
+  locationsOnLine: 8
+  buildLineLength: 100
+--- !u!4 &1975218462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975218460}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -37.8, y: 0.7, z: -24}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1993982766
 GameObject:
   m_ObjectHideFlags: 0
@@ -6707,7 +6756,7 @@ GameObject:
   - component: {fileID: 2002552065}
   - component: {fileID: 2002552061}
   m_Layer: 0
-  m_Name: BuildLocations
+  m_Name: UpperBuildLocations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6728,8 +6777,8 @@ MonoBehaviour:
   locations: []
   turretPrefab: {fileID: 2755334681113881823, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
   buildLocationPrefab: {fileID: 3500509877371298831, guid: d23b648affc99794fb300d3377bf5bf3, type: 3}
-  locationsOnLine: 5
-  buildLineLength: 45
+  locationsOnLine: 8
+  buildLineLength: 100
 --- !u!4 &2002552065
 Transform:
   m_ObjectHideFlags: 0
@@ -6738,7 +6787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002552060}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.4, y: 0.7, z: 23.6}
+  m_LocalPosition: {x: -37.8, y: 0.7, z: 24}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7299,13 +7348,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoTurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 2755334681113881792, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2755334681113881793, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2755334681113881793, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.860003
+      value: -118.1
       objectReference: {fileID: 0}
     - target: {fileID: 2755334681113881793, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7313,7 +7366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2755334681113881793, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.5
+      value: 40.2
       objectReference: {fileID: 0}
     - target: {fileID: 2755334681113881793, guid: 592f67eff6dc03e49bb1c2b13bf0199d, type: 3}
       propertyPath: m_LocalRotation.w
