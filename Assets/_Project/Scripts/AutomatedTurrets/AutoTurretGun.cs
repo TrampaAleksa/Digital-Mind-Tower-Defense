@@ -12,6 +12,7 @@ namespace com.digitalmind.towertest
         private bool _isShotReady;
         private bool _isReloading;
 
+        public float reloadSpeed;
 
         private void Awake()
         {
@@ -27,7 +28,7 @@ namespace com.digitalmind.towertest
         public void StartReload()
         {
             _isReloading = true;
-            _timedAction.StartTimedAction(FinishReload, 0.5f);
+            _timedAction.StartTimedAction(FinishReload, reloadSpeed);
         }
 
         private void FinishReload()

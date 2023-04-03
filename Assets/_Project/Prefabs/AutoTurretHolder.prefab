@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3515087465744248126, guid: e858bb57ab62619438c049ae45a9c0af, type: 3}
   gunTip: {fileID: 2755334681629252177}
+  reloadSpeed: 1
 --- !u!114 &6884311394181517010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   rotationObj: {fileID: 2755334681412683218}
   rotSpeed: 8
   lockOnAngle: 2.5
+  targetOffset: 1
 --- !u!114 &4221954491159253125
 MonoBehaviour:
   m_ObjectHideFlags: 0

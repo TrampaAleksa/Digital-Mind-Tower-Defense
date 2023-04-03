@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace com.digitalmind.towertest
 {
@@ -13,6 +14,10 @@ namespace com.digitalmind.towertest
         private TimedAction _timedAction;
         private bool _isOnCooldown;
 
+        public Image buildButtonImg;
+        public Color colorWhenDisabled;
+        public Color colorWhenEnabled;
+        
         private void Awake()
         {
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
@@ -25,6 +30,8 @@ namespace com.digitalmind.towertest
 
             _buildSystem.ShowBuildLocations();
             _isOnCooldown = true;
+            SetBuildButtonVisibility(false);
+
         }
 
         public void BuildOnLocation(BuildLocation buildLocation)
@@ -36,7 +43,21 @@ namespace com.digitalmind.towertest
         private void FinishBuildProcess()
         {
             _buildSystem.HideBuildLocations();
-            _timedAction.StartTimedAction(() => _isOnCooldown = false , buildCooldown);
+            _timedAction.StartTimedAction(OnCooldownExpired , buildCooldown);
+        }
+
+        private void OnCooldownExpired()
+        {
+            _isOnCooldown = false;
+            SetBuildButtonVisibility(true);
+        }
+
+        private void SetBuildButtonVisibility(bool isVisible)
+        {
+            if (isVisible)
+                buildButtonImg.color = colorWhenEnabled;
+            else 
+                buildButtonImg.color = colorWhenDisabled;
         }
     }
 }
