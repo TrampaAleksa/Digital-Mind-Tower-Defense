@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
     public void TakeDamage(float amount)
         => _playerHealth.TakeDamage(amount);
 
-    public void RotateTurret()
-        => _playerTurretRotation.RotateTurret();
+    public void RotateTurret(float rotationInput)
+        => _playerTurretRotation.RotateTurret(rotationInput);
 
     public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>(); // don't use in update if possible
 }

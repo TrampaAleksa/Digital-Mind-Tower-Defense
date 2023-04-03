@@ -24,10 +24,10 @@ namespace com.digitalmind.towertest
 
             var inputSensitivity = 0.1f;
             if (rotationInput.y > inputSensitivity)
-                player.RotateTurret();
+                player.RotateTurret(rotationInput.y);
 
             if (rotationInput.y < -inputSensitivity)
-                player.RotateTurret();
+                player.RotateTurret(rotationInput.y);
 
         }
     }
