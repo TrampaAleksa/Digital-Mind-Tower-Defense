@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
+    //TODO - create SO models for some other classes - Runner enemy, player, auto turret, etc.
     [CreateAssetMenu(fileName = "ShooterEnemyData", menuName = "ScriptableObjects/ShooterEnemyData", order = 1)]
-    public class ShooterEnemySOModel : ScriptableObject
+    public class ShooterEnemySOModel : ScriptableObject 
     {
         public float maxHealth = 2f;
 
