@@ -8,9 +8,16 @@ namespace com.digitalmind.towertest
         public int points = 1;
         public float secondsActive = 5f;
 
+        public float radiusMultiplierInAndroid = 1.5f;
+
         private void Start()
         {
             gameObject.AddComponent<TimedAction>().StartTimedAction(DespawnCoin, secondsActive);
+
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                GetComponent<CapsuleCollider>().radius *= radiusMultiplierInAndroid;
+            }
         }
 
         public void TriggerPickup()
