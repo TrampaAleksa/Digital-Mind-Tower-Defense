@@ -42,12 +42,10 @@ namespace com.digitalmind.towertest
         }
 
         public void ShowBuildLocations()
-        {
-            _locationsDisplay.ShowBuildLocations();
-        }
+            => _locationsDisplay.ShowBuildLocations();
         public void HideBuildLocations()
-        {
-            _locationsDisplay.HideBuildLocations();
-        }
+            => _locationsDisplay.HideBuildLocations();
+        public void SetBuildButtonVisibility(bool isVisible)
+            => _locationsDisplay.SetBuildButtonVisibility(isVisible);
     }
 }
