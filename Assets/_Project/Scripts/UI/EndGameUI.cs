@@ -34,7 +34,7 @@ public class EndGameUI : MonoBehaviour
     
     public void DisplayScore(TextMeshProUGUI scoreDisplay)
     {
-        scoreDisplay.text = ScoreHandler.Instance.CurrentScore.ToString(); //TODO - End game ui should know about score handler
+        scoreDisplay.text = ScoreHandler.Instance.CurrentScore.ToString(); //TODO - End game ui shouldnt know about score handler
     }
 
     public void BackToMainMenu()

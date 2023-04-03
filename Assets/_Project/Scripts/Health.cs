@@ -23,7 +23,7 @@ namespace com.digitalmind.towertest
             CurrentHealth -= amount;
             var mGameObject = gameObject;
             
-            onHealthChanged.Invoke(this, CurrentHealth);
+            onHealthChanged.Invoke(this);
 
             if (CurrentHealth <= 0)
                 onZeroHealth.Invoke(mGameObject);
@@ -53,7 +53,7 @@ namespace com.digitalmind.towertest
     }
     
     [Serializable]
-    public class OnHealthChangedEvent : UnityEvent<Health, float>
+    public class OnHealthChangedEvent : UnityEvent<Health>
     {
     }
 }

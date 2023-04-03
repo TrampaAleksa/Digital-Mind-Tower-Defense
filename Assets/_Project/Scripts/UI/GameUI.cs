@@ -17,8 +17,8 @@ namespace com.digitalmind.towertest
             _scoreUI = GetComponent<ScoreUI>();
         }
 
-        public void OnHealthChange(Health playerHealth, float newValue) =>
-            _healthUI.OnHealthChange(playerHealth, newValue);
+        public void OnHealthChange(Health playerHealth) =>
+            _healthUI.OnHealthChange(playerHealth);
 
         public void OnScoreChange(int newValue)
             => _scoreUI.OnScoreChange(newValue);
