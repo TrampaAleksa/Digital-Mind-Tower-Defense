@@ -8,6 +8,8 @@ namespace com.digitalmind.towertest
 {
     public class PlayerProjectile : MonoBehaviour
     {
+        public PlayerProjectileObjectPool projectilePool;
+        
         public float speed;
         public float damage = 1f;
         void Update()
@@ -35,7 +37,7 @@ namespace com.digitalmind.towertest
 
         private void Despawn()
         {
-            Destroy(gameObject);
+            projectilePool.Release(this);
         }
     }
 }

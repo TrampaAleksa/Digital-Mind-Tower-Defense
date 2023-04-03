@@ -4,22 +4,26 @@ using UnityEngine.Pool;
 
 public class PlayerProjectileObjectPool : MonoBehaviour
 {
-    public ObjectPool<PlayerProjectile> projectilePool;
+    private ObjectPool<PlayerProjectile> _projectilePool;
     public PlayerProjectile projectilePrefab;
 
     private void Awake()
     {
-        projectilePool = new ObjectPool<PlayerProjectile>(
+        _projectilePool = new ObjectPool<PlayerProjectile>(
             CreateProjectile,
             OnGetProjectile,
             OnReleaseProjectile,
             OnDestroyProjectile);
     }
-    
+
+    public PlayerProjectile Get() => _projectilePool.Get();
+    public void Release(PlayerProjectile projectile) => _projectilePool.Release(projectile);
+
     public PlayerProjectile CreateProjectile()
     {
         var projectile = Instantiate(projectilePrefab, transform);
         projectile.transform.position = transform.position;
+        projectile.projectilePool = this;
         return projectile;
     }
 

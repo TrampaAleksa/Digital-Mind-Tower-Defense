@@ -2,9 +2,10 @@ using System;
 using com.digitalmind.towertest;
 using UnityEngine;
 
-public class PlayerAutoGun : MonoBehaviour // TODO - extract component for auto shooting that the player and auto turrets will use
+public class
+    PlayerAutoGun : MonoBehaviour // TODO - extract component for auto shooting that the player and auto turrets will use
 {
-    public GameObject projectile;
+    public PlayerProjectileObjectPool projectilePool;
     public Transform gunTip;
 
     private TimedAction _timedAction;
@@ -54,6 +55,10 @@ public class PlayerAutoGun : MonoBehaviour // TODO - extract component for auto 
     private void Shoot()
     {
         _isShotReady = false;
-        Instantiate(projectile, gunTip.position, gunTip.rotation);
+        
+        var projectile = projectilePool.Get();
+
+        projectile.transform.position = gunTip.position;
+        projectile.transform.rotation = gunTip.rotation;
     }
 }
