@@ -23,6 +23,5 @@ public class Player : MonoBehaviour
     public void RotateTurret()
         => _playerTurretRotation.RotateTurret();
 
-    //TODO - optimize finding player game object
-    public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>();
+    public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>(); // don't use in update if possible
 }

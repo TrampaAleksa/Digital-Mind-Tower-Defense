@@ -7,7 +7,7 @@ public class PlayerTurretRotation : MonoBehaviour
     public Transform rotationObj;
     public float rotSpeed = 1f;
 
-    public PlayerInput input;
+    public PlayerInput input; //TODO - Rotation shouldn't know about input
 
     public void RotateTurret()
     {
