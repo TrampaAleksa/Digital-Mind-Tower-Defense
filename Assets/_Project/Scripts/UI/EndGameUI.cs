@@ -43,7 +43,7 @@ public class EndGameUI : MonoBehaviour
             new LeaderboardFileSystem()
                 .TryAddingResult(nameInput.text, ScoreHandler.Instance.CurrentScore);
         PauseGameHandler.Instance.SetIsPaused(false);
-        SceneManager.LoadScene("MainMenu");
+        SceneLoader.LoadMainMenu();
     }
 
     public void RestartGame()
@@ -53,7 +53,7 @@ public class EndGameUI : MonoBehaviour
                 .TryAddingResult(nameInput.text, ScoreHandler.Instance.CurrentScore);
         gameUIPanel.SetActive(true);
         PauseGameHandler.Instance.SetIsPaused(false); 
-        SceneManager.LoadScene("GameScene");
+        SceneLoader.LoadGameScene();
     }
 
     private bool IsHighScore(int score) {

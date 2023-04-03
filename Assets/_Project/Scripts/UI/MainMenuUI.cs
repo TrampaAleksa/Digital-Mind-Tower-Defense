@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using com.digitalmind.towertest;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ public class MainMenuUI : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene"); //TODO - Wrap scene loading logic
+        SceneLoader.LoadGameScene();
     }
 
     public void OpenLeaderboard()
