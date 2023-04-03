@@ -55,7 +55,11 @@ public class
     private void Shoot()
     {
         _isShotReady = false;
-        
+        SpawnProjectile();
+    }
+
+    private void SpawnProjectile()
+    {
         var projectile = projectilePool.Get();
 
         projectile.transform.position = gunTip.position;
