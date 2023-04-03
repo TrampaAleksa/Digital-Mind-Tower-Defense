@@ -164,6 +164,7 @@ MonoBehaviour:
   shootingRange: 40
   projectile: {fileID: 3515087465744248126, guid: a200c7c8b213f604987b9a79197668ce, type: 3}
   gunTip: {fileID: 5133888771115290690}
+  shooterData: {fileID: 11400000, guid: a7a72f75e44165e40aecfdf667514298, type: 2}
 --- !u!114 &960636378820251861
 MonoBehaviour:
   m_ObjectHideFlags: 0
