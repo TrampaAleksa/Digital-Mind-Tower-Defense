@@ -39,7 +39,7 @@ namespace com.digitalmind.towertest
                 if (Input.GetTouch(i).phase != TouchPhase.Began) continue;
 
                 Ray ray = camera.ScreenPointToRay(Input.GetTouch(i).position);
-                if (Physics.Raycast(ray, 100f, LayerMask.GetMask(layerName)))
+                if (Physics.Raycast(ray, out hit,100f, LayerMask.GetMask(layerName)))
                     return true;
             }
 
