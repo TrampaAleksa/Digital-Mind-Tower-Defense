@@ -94,7 +94,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""1722122c-db93-4d65-8fdb-4cf3b80b8b63"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": ""Hold"",
-                    ""processors"": """",
+                    ""processors"": ""InvertVector2(invertX=false),StickDeadzone(min=0.1)"",
                     ""groups"": """",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,

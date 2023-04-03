@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerTurret : MonoBehaviour
 {
@@ -8,12 +9,17 @@ public class PlayerTurret : MonoBehaviour
     public Transform gunTip;
     public GameObject projectile;
     
+     public PlayerInput input;
+
+    
     public void Shoot()
         => Instantiate(projectile, gunTip.position, gunTip.rotation);
     public void RotateTurret(Direction direction)
     {
         var rotationDirection = GetRotationDirection(direction);
-        rotationObj.Rotate(Vector3.up, rotationDirection * Time.deltaTime * rotSpeed);
+        var rotationInput = input.actions["Rotate"].ReadValue<Vector2>();
+        var rotSpeedFactor = rotationInput.y * rotSpeed;
+        rotationObj.Rotate(Vector3.up, Time.deltaTime * rotSpeedFactor);
     }
 
     private int GetRotationDirection(Direction direction)

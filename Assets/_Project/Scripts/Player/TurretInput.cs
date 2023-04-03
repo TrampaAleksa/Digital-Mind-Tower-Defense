@@ -10,8 +10,8 @@ namespace com.digitalmind.towertest
     public class TurretInput : MonoBehaviour
     {
         public Player player;
-        public PlayerInput input; 
-        
+        public PlayerInput input;
+
         private void Update()
         {
             HandleInputSystem();
@@ -21,14 +21,17 @@ namespace com.digitalmind.towertest
         private void HandleInputSystem()
         {
             var rotationInput = input.actions["Rotate"].ReadValue<Vector2>();
-            
+
             var inputSensitivity = 0.1f;
             if (rotationInput.y > inputSensitivity)
-                player.RotateTurret(Direction.Clockwise);
-
-            if (rotationInput.y < -inputSensitivity)
                 player.RotateTurret(Direction.CounterClockwise);
 
+            if (rotationInput.y < -inputSensitivity)
+                player.RotateTurret(Direction.Clockwise);
+
+            
+            Debug.Log(rotationInput.y);
+            
             if (input.actions["Fire"].WasPressedThisFrame())
                 player.Shoot();
         }

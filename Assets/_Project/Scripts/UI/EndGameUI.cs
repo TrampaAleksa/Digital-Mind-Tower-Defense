@@ -21,7 +21,6 @@ public class EndGameUI : MonoBehaviour
     public void DisplayEndGamePanel()
     {
         PauseGameHandler.Instance.SetIsPaused(true);
-        DisplayScore();
         gameObject.SetActive(true);
         gameUIPanel.SetActive(false);
 
@@ -33,7 +32,7 @@ public class EndGameUI : MonoBehaviour
         
     }
     
-    public void DisplayScore()
+    public void DisplayScore(TextMeshProUGUI scoreDisplay)
     {
         scoreDisplay.text = ScoreHandler.Instance.CurrentScore.ToString(); //TODO - End game ui should know about score handler
     }
@@ -70,10 +69,15 @@ public class EndGameUI : MonoBehaviour
     private void DisplayLeaderboardInputContainer() {
         leaderboardInputContainer.SetActive(true);
         noHighScoreContainer.SetActive(false);
+        var scoreText = leaderboardInputContainer.transform.Find("FinalScoreText").GetComponent<TextMeshProUGUI>();
+        DisplayScore(scoreText);
     }
 
     private void DisplayNoHighScoreContainer() {
         leaderboardInputContainer.SetActive(false);
         noHighScoreContainer.SetActive(true);
+        var scoreText = noHighScoreContainer.transform.Find("FinalScoreText").GetComponent<TextMeshProUGUI>();
+        DisplayScore(scoreText);
+
     }
 }
