@@ -8,21 +8,20 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     private Health _playerHealth;
-    private PlayerTurret _playerTurret;
+    private PlayerTurretRotation _playerTurretRotation;
 
     private void Awake()
     {
         gameObject.AddComponent<PlayerHitBox>().InjectPlayer(this);
         _playerHealth = GetComponent<Health>();
-        _playerTurret = GetComponent<PlayerTurret>();
+        _playerTurretRotation = GetComponent<PlayerTurretRotation>();
     }
 
     public void TakeDamage(float amount)
         => _playerHealth.TakeDamage(amount);
-    public void Shoot()
-        => _playerTurret.Shoot();
-    public void RotateTurret(Direction direction)
-        => _playerTurret.RotateTurret(direction);
+
+    public void RotateTurret()
+        => _playerTurretRotation.RotateTurret();
 
     //TODO - optimize finding player game object
     public static Player Find => GameObject.FindWithTag("Player").GetComponent<Player>();

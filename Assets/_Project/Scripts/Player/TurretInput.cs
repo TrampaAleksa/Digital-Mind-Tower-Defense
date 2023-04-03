@@ -24,16 +24,11 @@ namespace com.digitalmind.towertest
 
             var inputSensitivity = 0.1f;
             if (rotationInput.y > inputSensitivity)
-                player.RotateTurret(Direction.CounterClockwise);
+                player.RotateTurret();
 
             if (rotationInput.y < -inputSensitivity)
-                player.RotateTurret(Direction.Clockwise);
+                player.RotateTurret();
 
-            
-            Debug.Log(rotationInput.y);
-            
-            if (input.actions["Fire"].WasPressedThisFrame())
-                player.Shoot();
         }
     }
 }
