@@ -2,60 +2,20 @@ using System;
 using com.digitalmind.towertest;
 using UnityEngine;
 
-public class
-    PlayerAutoGun : MonoBehaviour // TODO - extract component for auto shooting that the player and auto turrets will use
+public class PlayerAutoGun : MonoBehaviour
 {
     public PlayerProjectileObjectPool projectilePool;
     public Transform gunTip;
-
-    private TimedAction _timedAction;
-
-    private bool _isShotReady;
-    private bool _isReloading;
 
     public float reloadSpeed;
 
     private void Awake()
     {
-        _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
-    }
+        var autoShoot = gameObject.AddComponent<AutoShoot>();
+        autoShoot.reloadSpeed = reloadSpeed;
+        autoShoot.AddShootAction(SpawnProjectile);
 
-    private void Update()
-    {
-        TryReloading();
-        TryShooting();
-    }
-
-    public void TryReloading()
-    {
-        if (!_isShotReady && !_isReloading)
-            StartReload();
-    }
-
-    public void StartReload()
-    {
-        _isReloading = true;
-        _timedAction.StartTimedAction(FinishReload, reloadSpeed);
-    }
-
-    private void FinishReload()
-    {
-        _isShotReady = true;
-        _isReloading = false;
-    }
-
-    public void TryShooting()
-    {
-        if (!_isShotReady)
-            return;
-
-        Shoot();
-    }
-
-    private void Shoot()
-    {
-        _isShotReady = false;
-        SpawnProjectile();
+        autoShoot.BeginShooting();
     }
 
     private void SpawnProjectile()
