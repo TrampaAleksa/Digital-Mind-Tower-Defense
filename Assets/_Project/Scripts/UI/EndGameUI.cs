@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-//TODO - Refactor everything - leaderboard input logic, pause logic; disable input on pause, ui shouldn't handle pause logic
+//TODO - Refactor - leaderboard input logic, pause logic; disable input on pause, ui should receive data from outside and only display / trigger events
 public class EndGameUI : MonoBehaviour
 {
     public TextMeshProUGUI scoreDisplay;
@@ -34,12 +34,12 @@ public class EndGameUI : MonoBehaviour
     
     public void DisplayScore(TextMeshProUGUI scoreDisplay)
     {
-        scoreDisplay.text = ScoreHandler.Instance.CurrentScore.ToString(); //TODO - End game ui shouldnt know about score handler
+        scoreDisplay.text = ScoreHandler.Instance.CurrentScore.ToString(); //TODO - End game ui shouldn't know about score handler
     }
 
     public void BackToMainMenu()
     {
-        if (_isHighScore) // TODO - Move logic into leaderboard input class
+        if (_isHighScore) // TODO - Extract logic into 'leaderboard input' class
             new LeaderboardFileSystem()
                 .TryAddingResult(nameInput.text, ScoreHandler.Instance.CurrentScore);
         PauseGameHandler.Instance.SetIsPaused(false);
