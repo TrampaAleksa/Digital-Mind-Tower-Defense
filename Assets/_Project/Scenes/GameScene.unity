@@ -569,8 +569,8 @@ MonoBehaviour:
   - {fileID: 501650379}
   spawnInterval: 2.5
   decrementInterval: 8
-  spawnSpeedDecrement: 0.3
-  lowestSpawnSpeed: 0.32
+  spawnSpeedDecrement: 0.25
+  lowestSpawnSpeed: 0.4
 --- !u!1 &72566643
 GameObject:
   m_ObjectHideFlags: 0

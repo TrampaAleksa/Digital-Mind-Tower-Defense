@@ -2,17 +2,18 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    //TODO - Get rotation and lock on components directly instead of referencing turret
     public class AutoTurretDebugger : MonoBehaviour
     {
-        private AutoTurret _turret;
+        private AutoTurretRotation _turretRotation;
+        private AutoTurretLockOn _turretLockOn;
 
         public bool debugAngle;
         public bool debugIsLooking;
 
         private void Awake()
         {
-            _turret = GetComponent<AutoTurret>();
+            _turretRotation = GetComponent<AutoTurretRotation>();
+            _turretLockOn = GetComponent<AutoTurretLockOn>();
         }
 
         private void Update()
@@ -24,19 +25,19 @@ namespace com.digitalmind.towertest
         {
             Debug.DrawRay(RotationObj.position, RotationObj.forward*50f, Color.red);
 
-            if (!_turret.HasEnemiesInRange) 
+            if (!_turretLockOn.HasEnemiesInRange) 
                 return;
             
-            Debug.DrawRay(RotationObj.position, _turret.DirectionToLockedOnEnemy);
+            Debug.DrawRay(RotationObj.position, _turretRotation.DirectionToTarget);
                 
             if (debugAngle)
                 Debug.Log(Vector3.Angle(RotationObj.forward,
-                    _turret.DirectionToLockedOnEnemy));
+                    _turretRotation.DirectionToTarget));
                 
             if (debugIsLooking)
-                Debug.Log("Looking: " + _turret.IsLookingAtEnemy);
+                Debug.Log("Looking: " + _turretRotation.IsLookingAtTarget);
         }
 
-        private Transform RotationObj => _turret.RotationObject;
+        private Transform RotationObj => _turretRotation.rotationObj;
     }
 }

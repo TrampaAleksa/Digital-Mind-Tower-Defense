@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
-    
     public class AutoTurret : MonoBehaviour
     {
         private AutoTurretGun _turretGun;
@@ -40,11 +39,9 @@ namespace com.digitalmind.towertest
             _turretGun.TryReloading();
         }
 
-        public Enemy LockedOnEnemy => _turretLockOn.LockedOnEnemy;
-        public Vector3 DirectionToLockedOnEnemy => _turretRotation.DirectionToTarget;
         public bool IsLookingAtEnemy => _turretRotation.IsLookingAtTarget;
-        public bool HasEnemiesInRange => _turretLockOn.HasEnemiesInRange;
-        public Transform RotationObject => _turretRotation.rotationObj;
+        private Enemy LockedOnEnemy => _turretLockOn.LockedOnEnemy;
+        private bool HasEnemiesInRange => _turretLockOn.HasEnemiesInRange;
 
     }
 }
