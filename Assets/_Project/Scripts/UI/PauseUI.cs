@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 namespace com.digitalmind.towertest
 {
-    //TODO - Every on click event of buttons should be triggering events from UI Handler that then call methods from UI scripts.
     public class PauseUI : MonoBehaviour
     {
         public GameObject gameUIPanel;
