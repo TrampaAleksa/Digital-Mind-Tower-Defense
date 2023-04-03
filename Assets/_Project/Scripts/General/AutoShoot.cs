@@ -1,25 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Codice.Client.BaseCommands;
 using UnityEngine;
 
 namespace com.digitalmind.towertest
 {
+    /// <summary>
+    /// Shoots every <see cref="reloadSpeed"/> seconds.
+    /// If reload finishes but <see cref="_shootingCondition"/> isn't met, will delay the shot until it is.
+    /// <see cref="OnShotFired"/> will get triggered once the shot is made.
+    /// After a shot was made, the reload process starts again.
+    /// </summary>
     public class AutoShoot : MonoBehaviour
     {
         public float reloadSpeed;
-        
-        private bool _isActivated;
-        
         private TimedAction _timedAction;
+        
         private Action OnShotFired;
+        private Func<bool> _shootingCondition = () => true;
         
         private bool _isShotReady;
         private bool _isReloading;
+        private bool _isActivated;
 
-
-        
         private void Awake()
         {
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
@@ -56,14 +59,16 @@ namespace com.digitalmind.towertest
         {
             if (!_isShotReady)
                 return;
-            
-            Shoot();
+            if (ShootingConditionMet)
+                Shoot();
         }
 
         private void Shoot()
         {
             _isShotReady = false;
-            TriggerShootAction();
+
+            if (ShootingConditionMet)
+                TriggerShootAction();
         }
 
                 
@@ -73,7 +78,9 @@ namespace com.digitalmind.towertest
         public void AddShootAction(Action shootEvent) => OnShotFired += shootEvent;
         public void RemoveShootAction(Action shootEvent) => OnShotFired -= shootEvent;
         public void TriggerShootAction() => OnShotFired?.Invoke();
-
+        
+        public void SetShootingCondition(Func<bool> condition) => _shootingCondition = condition;
+        private bool ShootingConditionMet => _shootingCondition.Invoke();
     }
 
 }
