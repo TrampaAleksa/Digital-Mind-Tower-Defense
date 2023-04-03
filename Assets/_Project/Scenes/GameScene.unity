@@ -927,6 +927,7 @@ GameObject:
   - component: {fileID: 206938181}
   - component: {fileID: 206938180}
   - component: {fileID: 206938179}
+  - component: {fileID: 206938182}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -984,6 +985,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206938182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206938178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 7e2464040a89b63479fbdf707ba6166a, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerTurret
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &209680043
 GameObject:
   m_ObjectHideFlags: 0
@@ -7194,10 +7225,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225298457, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 206938182}
     - target: {fileID: 225298469, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
       propertyPath: projectilePool
       value: 
       objectReference: {fileID: 1653468266}
+    - target: {fileID: 595408008085248381, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 206938182}
     - target: {fileID: 3186655795922846616, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
       propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7254,5 +7293,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHolder
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 225298463, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 97048c1add3b7944385de2624d5e7da9, type: 3}
